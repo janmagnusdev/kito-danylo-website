@@ -6,7 +6,7 @@ import PostRow from "../../components/Blog/PostRow.astro";
 const posts = (await getCollection("blog"))?.sort(
   (blogEntryA, blogEntryB) =>
     (blogEntryB.data.pubDate || new Date()).getTime() -
-    (blogEntryA.data.pubDate || new Date()).getTime()
+    (blogEntryA.data.pubDate || new Date()).getTime(),
 );
 ---
 

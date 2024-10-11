@@ -18,7 +18,7 @@ if (slug === undefined) {
 const posts = (await getCollection("blog")).sort(
   (blogEntryA, blogEntryB) =>
     (blogEntryB.data.pubDate || new Date()).getTime() -
-    (blogEntryA.data.pubDate || new Date()).getTime()
+    (blogEntryA.data.pubDate || new Date()).getTime(),
 );
 
 const entry = posts.find((entry) => entry.slug === slug);

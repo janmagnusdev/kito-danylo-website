@@ -1,23 +1,6 @@
-# ⚡️astro-bento-portfolio
+# ⚡️Kito Danylo Website
 
 ## A personal portfolio website made using `Astro`.
-
-![astro-bento-portfolio | Bento-like Personal Porfolio Template](public/preview.png)
-
-To view a demo example, **[click here](https://sparkly-speculoos-0c9197.netlify.app/)**
-
-or my portfolio **[click here](https://gianmarco.xyz/)**
-
-## Features
-
-- Modern and Minimal bento-like, sleek UI Design
-- All in one page (almost)
-- Fully Responsive
-- Performances and SEO optimizations
-- Ready to be deployed on [Netlify](https://www.netlify.com/)
-- Blog
-- RSS support (your-domain/rss.xml)
-- Cool 3d globe
 
 ## Tech Stack
 
@@ -58,16 +41,7 @@ $ npm run dev
 
 remember to replace the `site` and other properties with your data in `astro.config.mjs`
 
-# Deploy on Netlify 🚀
-
-Deploying your website on Netlify it's optional but I reccomand it in order to deploy it faster and easly.
-
-You just need to fork this repo and linking it to your Netlify account.
-
-or
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Ladvace/astro-bento-portfolio)
-
 ## Authors ❤️
 
-- Gianmarco - https://github.com/Ladvace
+- Jan-Magnus Monenschein - https://bio.link/janmagnusdev
+- Original Template: Gianmarco - https://github.com/Ladvace

@@ -1,4 +1,5 @@
 ---
+import { LINKS } from "../lib/constants";
 interface Props {
   title: string;
   description: string;
@@ -26,26 +27,23 @@ const schema =
     ? {
         "@context": "http://schema.org",
         "@type": "Person",
-        name: "Gianmarco",
-        url: "https://gianmarco.xyz",
-        sameAs: [
-          "https://www.linkedin.com/in/gianmarco-cavallo",
-          "https://github.com/Ladvace",
-        ],
+        name: "Kito",
+        url: "https://kito-danylo.com",
+        sameAs: [LINKS.xing, LINKS.instagram],
         image: "https://gianmarco.xyz/og-image.png",
-        jobTitle: "Freelance Frontend Developer",
+        jobTitle: "Personal Trainer",
         worksFor: {
           "@type": "Organization",
           name: "Self-Employed",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
+            addressLocality: "Germany",
+            addressCountry: "DE",
           },
         },
         nationality: {
           "@type": "Country",
-          name: "Italy",
+          name: "Germany",
         },
       }
     : {
@@ -60,7 +58,7 @@ const schema =
         image: "https://gianmarco.xyz/og-image.png", //TODO: dynamic
         author: {
           "@type": "Person",
-          name: "Gianmarco",
+          name: "Kito",
           url: "https://gianmarco.xyz",
           sameAs: [
             "https://www.linkedin.com/in/gianmarco-cavallo",
@@ -69,7 +67,7 @@ const schema =
         },
         publisher: {
           "@type": "Organization",
-          name: "Gianmarco",
+          name: "Kito",
           logo: {
             "@type": "ImageObject",
             url: "https://gianmarco.xyz/og-image.png",

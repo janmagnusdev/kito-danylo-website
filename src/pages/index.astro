@@ -33,41 +33,44 @@ import Globe from "../components/Globe";
 
 <Layout
   title="Kito Danylo - Personal Trainer"
-  description="I'm a developer based in Italy, passionate about user experience and specializing in engaging animations and micro-interactions. My primary tools of choice include: JavaScript, React, Solid.js, Astro, Svelte, and Node.js."
+  description="Hi, I'm Kito Danylo, a personal trainer from Germany."
 >
   <main
     class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
   >
     <IntroCard />
     <AboutMe />
-    <ContactsCard />
     <TimeZone />
     <Now />
+    <ContactsCard />
+    <div class="md:col-span-1 md:row-span-2 gap-2 grid gap-2">
+      <Card
+        colSpan="md:col-span-1"
+        rowSpan="md:row-span-1"
+        title="Countries I visited"
+        href="travel"
+        colorText="text-neutral-900"
+        className="mb-2"
+      >
+        <div class="h-full w-full absolute inset-0 -z-10">
+          <Globe client:load />
+        </div>
+      </Card>
+      <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
+        <p class="text-xs">
+          © 2024 · Crafted with 💙 using <a
+            href="https://astro.build/"
+            target="_blank"
+            class="text-primary-500">Astro</a
+          > by Gianmarco.
+        </p>
+      </Card>
+    </div>
     <Card
       colSpan="md:col-span-1"
-      rowSpan="md:row-span-1"
-      title="Countries I visited"
-      href="travel"
-      colorText="text-neutral-900"
-    >
-      <div class="h-full w-full absolute inset-0 -z-10">
-        <Globe client:load />
-      </div>
-    </Card>
-    <Card
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-2 flex gap-4"
+      rowSpan="md:row-span-2 flex"
       title="Blog"
       href="/blog"
     />
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-      <p class="text-xs">
-        © 2024 · Crafted with ♥️ using <a
-          href="https://astro.build/"
-          target="_blank"
-          class="text-red-500">Astro</a
-        > by Gianmarco.
-      </p>
-    </Card>
   </main>
 </Layout>

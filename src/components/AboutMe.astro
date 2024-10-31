@@ -1,4 +1,7 @@
 ---
+// code written here in the frontmatter of an astro component is only used during compile time -
+// it is fenced in between --- and will never leak into frontend! thats why expensive and sensitive
+// stuff can also be done here without problems!
 import Card from "./Card/index.astro";
 ---
 
@@ -17,5 +20,5 @@ import Card from "./Card/index.astro";
         </p>
       </p>
     </div>
-  </div></Card
->
+  </div>
+</Card>

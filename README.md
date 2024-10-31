@@ -39,7 +39,7 @@ $ npm run dev
 
 # Configuration
 
-remember to replace the `site` and other properties with your data in `astro.config.mjs`
+remember to replace the `site` and other properties with your data in `astro.config.ts`
 
 ## Authors ❤️
 

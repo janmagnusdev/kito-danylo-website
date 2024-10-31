@@ -5,6 +5,12 @@ import { LINKS } from "../lib/constants";
 import { Icon } from "astro-icon/components";
 import Tooltip from "./Tooltip/index";
 import { Image } from "astro:assets";
+import LanguageSwitcher from "./i18n/LanguageSwitcher.astro";
+
+const languages = {
+  de: "Deutsch",
+  en: "English",
+} as const;
 ---
 
 <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
@@ -40,12 +46,6 @@ import { Image } from "astro:assets";
             <span class="sr-only">Xing Profile</span>
           </Button>
         </a>
-        <a href={LINKS.github} aria-label="github profile" target="_blank">
-          <Button aria-label="github profile">
-            <Icon name="ri:github-fill" class="h-6" />
-            <span class="sr-only">GitHub Profile</span>
-          </Button>
-        </a>
         <Tooltip client:visible>
           <Button aria-label="easter egg btn">
             <Icon name="ri:emotion-laugh-line" class="h-6" />
@@ -53,6 +53,7 @@ import { Image } from "astro:assets";
           </Button>
         </Tooltip>
       </div>
+      <LanguageSwitcher />
     </div>
     <Image
       width="300"

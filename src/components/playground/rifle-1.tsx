@@ -1,5 +1,5 @@
 import * as rive from "@rive-app/canvas";
-import rifleAnimation from "../../riveAnimations/rifle.riv";
+import rifleAnimation from "./riveAnimations/rifle.riv";
 import { createSignal, onCleanup, onMount } from "solid-js";
 
 const Illustrations = () => {

@@ -12,6 +12,14 @@ import svelte from "@astrojs/svelte";
 // https://astro.build/config
 export default defineConfig({
   site: "https://gianmarco.xyz/",
+  i18n: {
+    defaultLocale: "de",
+    locales: ["de", "en"],
+    routing: "manual",
+    fallback: {
+      en: "de",
+    },
+  },
   integrations: [
     sitemap(),
     robotsTxt({

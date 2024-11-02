@@ -6,11 +6,6 @@ import { Icon } from "astro-icon/components";
 import Tooltip from "./Tooltip/index";
 import { Image } from "astro:assets";
 import LanguageSwitcher from "./i18n/LanguageSwitcher.astro";
-
-const languages = {
-  de: "Deutsch",
-  en: "English",
-} as const;
 ---
 
 <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
@@ -53,7 +48,7 @@ const languages = {
           </Button>
         </Tooltip>
       </div>
-      <LanguageSwitcher targetLanguage="en" originLanguage="de" />
+      <LanguageSwitcher targetLanguage="de" originLanguage="en" />
     </div>
     <Image
       width="300"

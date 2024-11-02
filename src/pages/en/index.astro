@@ -7,6 +7,7 @@ import TimeZone from "../../components/TimeZoneCard.astro";
 import AboutMe from "../../components/AboutMe.astro";
 import Now from "../../components/Now.astro";
 import Globe from "../../components/Globe";
+import { getRelativeLocaleUrl } from "astro:i18n";
 ---
 
 <script>
@@ -38,6 +39,39 @@ import Globe from "../../components/Globe";
   <main
     class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
   >
-    Work in Progress!!!
+    <IntroCard />
+    <AboutMe />
+    <TimeZone />
+    <Now />
+    <ContactsCard />
+    <div class="md:col-span-1 md:row-span-2 gap-2 grid gap-2">
+      <Card
+        colSpan="md:col-span-1"
+        rowSpan="md:row-span-1"
+        title="Countries I visited"
+        href={getRelativeLocaleUrl("de", "travel")}
+        colorText="text-neutral-900"
+        className="mb-2"
+      >
+        <div class="h-full w-full absolute inset-0 -z-10">
+          <Globe client:load />
+        </div>
+      </Card>
+      <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
+        <p class="text-xs">
+          © 2024 · Crafted with 💙 using <a
+            href="https://astro.build/"
+            target="_blank"
+            class="text-primary-500">Astro</a
+          > by Gianmarco.
+        </p>
+      </Card>
+    </div>
+    <Card
+      colSpan="md:col-span-1"
+      rowSpan="md:row-span-2 flex"
+      title="Blog"
+      href={getRelativeLocaleUrl("en", "blog")}
+    />
   </main>
 </Layout>

@@ -1,20 +1,39 @@
 ---
 import { Icon } from "astro-icon/components";
-import Button from "../Button.astro";
+import { JSDOM } from "jsdom";
+import DOMPurify from "dompurify";
+
+const window = new JSDOM("").window;
+const purify = DOMPurify(window);
+
+const languages = {
+  de: {
+    label: "Deutsch",
+    text: "Diese Seite ist auch in %s verfügbar",
+  },
+  en: {
+    label: "English",
+    text: "This page is also available in %s",
+  },
+} as const;
 
 interface Props {
-  originLanguage: string;
-  targetLanguage: string;
+  originLanguage: keyof typeof languages;
+  targetLanguage: keyof typeof languages;
 }
-const { targetLanguage } = Astro.props;
+
+const { targetLanguage, originLanguage } = Astro.props;
+
+const link = `<a class="text-primary-500" href="/${targetLanguage}/">
+          ${languages[targetLanguage].label}
+        </a>`;
+
+const paragraphText = purify.sanitize(
+  languages[targetLanguage].text.replace("%s", link),
+);
 ---
 
 <div class="flex gap-1 flex-items-center">
   <Icon name="ri:global-line" class="text-align-center" />
-  <p class="text-sm italic">
-    This page is also available in <a
-      class="text-primary-500"
-      href={`/${targetLanguage}/`}>English</a
-    >
-  </p>
+  <p class="text-sm italic" set:html={paragraphText} />
 </div>

@@ -1,11 +1,11 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Card from "../../components/Card/index.astro";
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/Card/index.astro";
 ---
 
 <script>
   import { stagger, spring, timeline, type TimelineDefinition } from "motion";
-  import { loaderAnimation } from "../../lib/constants";
+  import { loaderAnimation } from "@lib/constants";
   const cards = document.querySelectorAll(".card");
 
   const sequence = [

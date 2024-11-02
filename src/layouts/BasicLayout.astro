@@ -107,6 +107,12 @@ const schema =
     />
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Kito Danylo Personal Trainer"
+      href={new URL("rss.xml", Astro.site)}
+    />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body
@@ -121,7 +127,6 @@ const schema =
   @font-face {
     font-family: "CabinetGrotesk";
     src: url("/fonts/CabinetGrotesk-Variable.ttf") format("truetype-variations");
-    font-weight: normal;
     font-style: normal;
     font-display: swap;
     font-weight: 100 1000;
@@ -129,7 +134,6 @@ const schema =
   @font-face {
     font-family: "Satoshi";
     src: url("/fonts/Satoshi-Variable.ttf") format("truetype-variations");
-    font-weight: normal;
     font-style: normal;
     font-display: swap;
     font-weight: 100 1000;
@@ -150,7 +154,7 @@ const schema =
     font-family: "Cabinet Grotesk", sans-serif;
   }
   p {
-    font-family: "Satoshi";
+    font-family: "Satoshi", "sans-serif";
   }
 
   b {

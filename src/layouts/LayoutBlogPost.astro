@@ -2,12 +2,14 @@
 import { formatDate } from "../lib/helpers";
 import type { MarkdownLayoutProps } from "astro";
 import BasicLayout from "./BasicLayout.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 type Props = MarkdownLayoutProps<{
   title: string;
   description: string;
   pubDate: string;
   minutesRead: string;
+  locale: string;
 }>;
 
 const { slug } = Astro.params;
@@ -23,7 +25,7 @@ const { frontmatter } = Astro.props;
 >
   <main class="mx-auto max-w-3xl w-full h-screen p-8 text-neutral-100">
     <a
-      href="/blog"
+      href={getRelativeLocaleUrl(frontmatter.locale, "blog")}
       class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg mb-8"
       >Back</a
     >

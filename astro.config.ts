@@ -5,13 +5,14 @@ import UnoCSS from "@unocss/astro";
 import icon from "astro-icon";
 
 import solidJs from "@astrojs/solid-js";
-import { remarkReadingTime } from "./src/lib/ remark-reading-time.mjs";
+import { remarkReadingTime } from "@lib/remark-reading-time.mjs";
 
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://gianmarco.xyz/",
+  site: "https://kito-coaching.com/",
+  trailingSlash: "ignore",
   i18n: {
     defaultLocale: "de",
     locales: ["de", "en"],
@@ -24,8 +25,8 @@ export default defineConfig({
     sitemap(),
     robotsTxt({
       sitemap: [
-        "https://gianmarco.xyz/sitemap-index.xml",
-        "https://gianmarco.xyz/sitemap-0.xml",
+        "https://kito-coaching.com/sitemap-index.xml",
+        "https://kito-coaching.com/sitemap-0.xml",
       ],
     }),
     solidJs(),

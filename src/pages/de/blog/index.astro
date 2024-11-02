@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
 import PostRow from "../../../components/Blog/PostRow.astro";
 
@@ -27,7 +28,7 @@ const posts = (await getCollection("blog"))?.sort(
     class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
   >
     <a
-      href="/"
+      href="/de/"
       class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"
       >Back</a
     >
@@ -38,7 +39,7 @@ const posts = (await getCollection("blog"))?.sort(
           <PostRow
             title={post.data.title || "No title"}
             date={post.data.pubDate || new Date()}
-            url={post.slug}
+            url={getRelativeLocaleUrl("de", `blog/${post.slug}`)}
           />
         ))
       }

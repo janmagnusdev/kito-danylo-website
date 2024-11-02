@@ -6,25 +6,15 @@ interface Props {
   originLanguage: string;
   targetLanguage: string;
 }
-
-const { originLanguage, targetLanguage } = Astro.props;
-const languages = {
-  de: "Deutsch",
-  en: "English",
-} as const;
+const { targetLanguage } = Astro.props;
 ---
 
-<div class="flex gap-4">
-  <div class="">
-    <Icon name="ri:global-line" class="h-12 w-12 text-align-center" />
-  </div>
-  <div class="flex flex-row gap-4 flex-justify-star w-md">
-    {
-      Object.entries(languages).map(([lang, label]) => (
-        <a href={`/${lang}/`}>
-          <Button>{label}</Button>
-        </a>
-      ))
-    }
-  </div>
+<div class="flex gap-1 flex-items-center">
+  <Icon name="ri:global-line" class="text-align-center" />
+  <p class="text-sm italic">
+    This page is also available in <a
+      class="text-primary-500"
+      href={`/${targetLanguage}/`}>English</a
+    >
+  </p>
 </div>

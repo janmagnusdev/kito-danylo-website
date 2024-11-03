@@ -1,5 +1,6 @@
 import { defineMiddleware, sequence } from "astro:middleware";
 import { middleware } from "astro:i18n";
+import i18next from "i18next";
 
 // example for a user defined middleware
 export const userMiddleware = defineMiddleware(async (context, next) => {
@@ -22,6 +23,11 @@ const getLocale = (url: string) => {
 
 export const localizationMiddleWare = defineMiddleware(
   async (context, next) => {
+    const locale = getLocale(context.url.toString());
+    if (locale === null) {
+      throw new Error("could not match locale!");
+    }
+    await i18next.changeLanguage(locale);
     // @ts-ignore
     (context.locals as App.Locals).locale = getLocale(context.url.toString());
     return next();

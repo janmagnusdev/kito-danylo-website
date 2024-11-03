@@ -1,11 +1,16 @@
 ---
 import Card from "./Card/index.astro";
 import Button from "./Button.astro";
-import { LINKS } from "../lib/constants";
+import { LINKS } from "@lib/constants";
 import { Icon } from "astro-icon/components";
 import Tooltip from "./Tooltip/index";
 import { Image } from "astro:assets";
 import LanguageSwitcher from "./i18n/LanguageSwitcher.astro";
+import i18next, { t } from "i18next";
+import { type App } from "../env";
+
+const { locale } = Astro.locals as App.Locals;
+i18next.changeLanguage(locale);
 ---
 
 <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
@@ -14,8 +19,10 @@ import LanguageSwitcher from "./i18n/LanguageSwitcher.astro";
       <div class="flex flex-col h-full">
         <h6 class="text-sm font-light m-0 text-gray-500">welcome</h6>
         <p class="m-0 font-light text-xl">
-          Hi, I'm <b class="font-bold">Kito Danylo</b>, a personal trainer with
-          a strong focus on making you fit and healthy!
+          Hi, ich bin <b class="font-bold">Kito Danylo</b>. Schön, dass Du hier
+          bist! Überzeuge dich von der Kraft der Bewegung und erreiche gemeinsam
+          mit mir deine Wünsche und Ziele!
+          {t("myKey")}
         </p>
       </div>
       <div class="flex gap-4">

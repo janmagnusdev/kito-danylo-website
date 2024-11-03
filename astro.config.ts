@@ -8,6 +8,7 @@ import solidJs from "@astrojs/solid-js";
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 
 import svelte from "@astrojs/svelte";
+import myI18nextIntegration from "./src/lib/my-i18next-integration";
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,12 +34,10 @@ export default defineConfig({
     UnoCSS({ injectReset: true }),
     icon(),
     svelte(),
+    myI18nextIntegration(),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
   output: "static",
-  vite: {
-    assetsInclude: "**/*.riv",
-  },
 });

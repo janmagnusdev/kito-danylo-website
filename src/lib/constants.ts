@@ -11,3 +11,6 @@ export const loaderAnimation = [
 ];
 
 export const AUTHOR_GITHUB_PROFILE = "https://github.com/janmagnusdev/";
+
+const SUPPORTED_LANGUAGES_ARRAY = ["de", "en"] as const;
+export type SUPPORTED_LANGUAGES = (typeof SUPPORTED_LANGUAGES_ARRAY)[number];

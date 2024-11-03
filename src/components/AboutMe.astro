@@ -1,24 +1,24 @@
 ---
+import type { App } from "../env";
+import i18next, { t } from "i18next";
 // code written here in the frontmatter of an astro component is only used during compile time -
 // it is fenced in between --- and will never leak into frontend! thats why expensive and sensitive
 // stuff can also be done here without problems!
 import Card from "@components/Card/index.astro";
+
+const { locale } = Astro.locals as App.Locals;
+i18next.changeLanguage(locale);
 ---
 
-<Card colSpan="md:col-span-1" rowSpan="md:row-span-4" title="About me">
+<Card
+  colSpan="md:col-span-1"
+  rowSpan="md:row-span-4"
+  title={t("aboutMe.title")}
+>
   <div class="flex flex-col gap-2">
-    <div class="text-sm font-light">
-      <p>
-        Hi, I'm Kito Danylo, a personal trainer from Germany.
-        <br />
-        <br />
-        <p class="text-sm font-light">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-          nulla sapiente cum molestias quam cumque distinctio? Magnam
-          consequatur tempora laborum itaque ipsum cum repellendus obcaecati,
-          enim, quia, architecto aliquam sit.
-        </p>
-      </p>
+    <div class="space-y-4">
+      <p class="text-sm font-light">{t("aboutMe.paragraph1")}</p>
+      <p class="text-sm font-light">{t("aboutMe.paragraph2")}</p>
     </div>
   </div>
 </Card>

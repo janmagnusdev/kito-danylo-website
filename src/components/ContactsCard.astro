@@ -2,6 +2,30 @@
 import Card from "@components/Card/index.astro";
 import { LINKS } from "@lib/constants";
 import { AUTHOR_GITHUB_PROFILE } from "../lib/constants";
+
+const text = {
+  de: {
+    title: "Über mich",
+    paragraphs: [
+      `Ob es der Adrenalinschub vor dem Start eines Sprints, das Gefühl ein
+     entscheidendes Tor zu erzielen oder die vollkommene Ruhe beim Yoga ist…
+     Bewegung und Sport hat mich in meinem Leben bis heute geprägt.`,
+      `Ich möchte so viele Menschen wie möglich inspirieren und gemeinsam Wege
+    entwickeln ihre Ziele & Träume anzupacken, sowie bei der Umsetzung
+    helfen diese zu verwirklichen!`,
+    ],
+  },
+  en: {
+    title: "About me",
+    paragraphs: [
+      `Hi, I'm Kito Danylo, a personal trainer from Germany.`,
+      `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
+    nulla sapiente cum molestias quam cumque distinctio? Magnam
+    consequatur tempora laborum itaque ipsum cum repellendus obcaecati,
+    enim, quia, architecto aliquam sit.`,
+    ],
+  },
+};
 ---
 
 <Card colSpan="md:col-span-1" rowSpan="md:row-span-4">

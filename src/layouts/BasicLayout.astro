@@ -19,18 +19,18 @@ interface Props {
 const { title, description, page, slug, frontmatter } = Astro.props;
 const image =
   page === "travel"
-    ? `${Astro.url.origin}/globe_preview.webp"`
-    : `${Astro.url.origin}/og-image.png`;
+    ? `${Astro.site}globe_preview.webp"`
+    : `${Astro.site}og-image.png`;
 
-const schema =
+const structuredData =
   page !== "blog"
     ? {
         "@context": "http://schema.org",
         "@type": "Person",
-        name: "Kito",
-        url: "https://kito-danylo.com",
-        sameAs: [LINKS.xing, LINKS.instagram],
-        image: "https://gianmarco.xyz/og-image.png",
+        name: "Kito Danylo",
+        url: Astro.site,
+        sameAs: [LINKS.xing, LINKS.instagram, LINKS.email],
+        // image: `${Astro.site}og-image.png`,
         jobTitle: "Personal Trainer",
         worksFor: {
           "@type": "Organization",
@@ -51,27 +51,25 @@ const schema =
         "@type": "BlogPosting",
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://gianmarco.xyz/blog/${slug}`,
+          "@id": `${Astro.site}de/blog/${slug}`,
         },
         headline: frontmatter?.title || title,
         description: frontmatter?.description || title,
-        image: "https://gianmarco.xyz/og-image.png", //TODO: dynamic
+        // TODO: og-image of kito
+        // image: {`${Astro.site}og-image.png`},
         author: {
           "@type": "Person",
-          name: "Kito",
-          url: "https://gianmarco.xyz",
-          sameAs: [
-            "https://www.linkedin.com/in/gianmarco-cavallo",
-            "https://github.com/Ladvace",
-          ],
+          name: "Kito Danylo",
+          url: Astro.site,
+          sameAs: [LINKS.xing, LINKS.instagram, LINKS.email],
         },
         publisher: {
           "@type": "Organization",
-          name: "Kito",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://gianmarco.xyz/og-image.png",
-          },
+          name: "Kito Danylo",
+          // logo: {
+          //   "@type": "ImageObject",
+          //   url: "https://kito-coaching.com/og-image.png",
+          // },
         },
         datePublished: frontmatter?.pubDate || new Date().toISOString(),
         dateModified: frontmatter?.pubDate || new Date().toISOString(),
@@ -83,28 +81,26 @@ const schema =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/old.favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon-v2.ico?v=2" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="/favicon/sitemap-index.xml" />
+    <meta name="robots" content="/sitemap-index.xml" />
     <!-- Basic OG tags for sharing your website's content on platforms like Facebook and LinkedIn -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.origin} />
-    <meta
-      property="og:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
-    />
+    {
+      /* <meta property="og:image" content={image || `${Astro.site}og-image.png`} /> */
+    }
     <!-- Basic Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
-    />
+    {
+      /* <meta name="twitter:image" content={image || `${Astro.site}og-image.png`} /> */
+    }
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />
     <link
@@ -113,7 +109,10 @@ const schema =
       title="Kito Danylo Personal Trainer"
       href={new URL("rss.xml", Astro.site)}
     />
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
   </head>
   <body
     class="bg-darkslate-700 md:h-screen flex flex-col justify-center items-center"

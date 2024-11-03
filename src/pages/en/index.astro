@@ -8,6 +8,7 @@ import AboutMe from "../../components/AboutMe.astro";
 import Now from "../../components/Now.astro";
 import Globe from "../../components/Globe";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { AUTHOR_GITHUB_PROFILE } from "../../lib/constants";
 ---
 
 <script>
@@ -63,7 +64,14 @@ import { getRelativeLocaleUrl } from "astro:i18n";
             href="https://astro.build/"
             target="_blank"
             class="text-primary-500">Astro</a
-          > by Gianmarco.
+          > by <a class="text-primary-500" href={AUTHOR_GITHUB_PROFILE}
+            >@janmagnusdev</a
+          >. <a
+            class="text-primary-700"
+            href="https://github.com/Ladvace/astro-bento-portfolio">Template</a
+          > from <a class="text-primary-700" href="https://github.com/Ladvace"
+            >Gianmarco</a
+          >.
         </p>
       </Card>
     </div>

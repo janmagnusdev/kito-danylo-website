@@ -10,6 +10,8 @@ import i18next, { t } from "i18next";
 import { type App } from "../env";
 
 const { locale } = Astro.locals as App.Locals;
+const targetLocale = locale === "de" ? "en" : "de";
+
 i18next.changeLanguage(locale);
 ---
 
@@ -17,12 +19,10 @@ i18next.changeLanguage(locale);
   <div class="flex w-full h-full">
     <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
       <div class="flex flex-col h-full">
-        <h6 class="text-sm font-light m-0 text-gray-500">welcome</h6>
+        <h6 class="text-sm font-light m-0 text-gray-500">{t("welcome")}</h6>
         <p class="m-0 font-light text-xl">
-          Hi, ich bin <b class="font-bold">Kito Danylo</b>. Schön, dass Du hier
-          bist! Überzeuge dich von der Kraft der Bewegung und erreiche gemeinsam
-          mit mir deine Wünsche und Ziele!
-          {t("myKey")}
+          {t("introCard.hi")}
+          <b class="font-bold">Kito Danylo</b>. {t("introCard.hi2")}
         </p>
       </div>
       <div class="flex gap-4">
@@ -55,7 +55,7 @@ i18next.changeLanguage(locale);
           </Button>
         </Tooltip>
       </div>
-      <LanguageSwitcher targetLanguage="de" originLanguage="en" />
+      <LanguageSwitcher targetLanguage={targetLocale} originLanguage={locale} />
     </div>
     <Image
       width="300"

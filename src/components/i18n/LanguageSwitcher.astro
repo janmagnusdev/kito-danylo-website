@@ -2,34 +2,25 @@
 import { Icon } from "astro-icon/components";
 import { JSDOM } from "jsdom";
 import DOMPurify from "dompurify";
+import { t } from "i18next";
+import { type SUPPORTED_LANGUAGES } from "@lib/constants";
 
 const window = new JSDOM("").window;
 const purify = DOMPurify(window);
 
-const languages = {
-  de: {
-    label: "Deutsch",
-    text: "Diese Seite ist auch in %s verfügbar",
-  },
-  en: {
-    label: "English",
-    text: "This page is also available in %s",
-  },
-} as const;
-
 interface Props {
-  originLanguage: keyof typeof languages;
-  targetLanguage: keyof typeof languages;
+  originLanguage: SUPPORTED_LANGUAGES;
+  targetLanguage: SUPPORTED_LANGUAGES;
 }
 
 const { targetLanguage, originLanguage } = Astro.props;
 
 const link = `<a class="text-primary-500" href="/${targetLanguage}/">
-          ${languages[targetLanguage].label}
+          ${t(`languages.${targetLanguage}.label`, { ns: "global" })}
         </a>`;
 
 const paragraphText = purify.sanitize(
-  languages[targetLanguage].text.replace("%s", link),
+  t(`languages.${targetLanguage}.text`, { ns: "global" }).replace("%s", link),
 );
 ---
 

@@ -1,7 +1,8 @@
 import i18next from "i18next";
 import type { AstroIntegration } from "astro";
-import * as TranslationsDE from "./translations.de.json";
-import * as TranslationsEN from "./translations.en.json";
+import TranslationsDE from "./translations.de.ts";
+import TranslationsEN from "./translations.en.ts";
+import GlobalTranslations from "./translations.global.ts";
 
 const initI18n = () => {
   i18next.t;
@@ -17,6 +18,8 @@ const initI18n = () => {
   });
   i18next.addResourceBundle("de", "translation", TranslationsDE, true);
   i18next.addResourceBundle("en", "translation", TranslationsEN, true);
+  i18next.addResourceBundle("de", "global", GlobalTranslations);
+  i18next.addResourceBundle("en", "global", GlobalTranslations);
 };
 
 export default function myI18nextIntegration(): AstroIntegration {

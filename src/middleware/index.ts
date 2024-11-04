@@ -29,7 +29,7 @@ export const localizationMiddleWare = defineMiddleware(
     }
     await i18next.changeLanguage(locale);
     // @ts-ignore
-    (context.locals as App.Locals).locale = getLocale(context.url.toString());
+    (context.locals as App.Locals).locale = locale;
     return next();
   },
 );

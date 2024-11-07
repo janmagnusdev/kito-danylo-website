@@ -1,7 +1,21 @@
 // uno.config.ts
 import { defineConfig, presetUno, presetWebFonts } from "unocss";
 
+export const offerContentLinkColors = [
+  "orange-3",
+  "blue-3",
+  "green-3",
+  "red-3",
+];
+
 export default defineConfig({
+  safelist: [
+    ...offerContentLinkColors.flatMap((item) => [
+      `text-${item}`,
+      `border-${item}`,
+    ]),
+    "rotate-180",
+  ],
   content: {
     filesystem: ["**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}"],
   },

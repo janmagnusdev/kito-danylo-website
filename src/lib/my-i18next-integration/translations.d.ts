@@ -10,6 +10,10 @@ interface Translations {
     hi: string;
     hi2: string;
   };
+  offerCard: {
+    title: string;
+    subtitle: string;
+  };
 }
 
 interface GlobalTranslations {

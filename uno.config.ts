@@ -62,7 +62,7 @@ export default defineConfig({
     presetWebFonts({
       provider: "fontshare",
       fonts: {
-        sans: ["Cabinet Grotesk", "Satoshi"],
+        sans: ["CabinetGrotesk", "Satoshi"],
         serif: "Zodiak",
       },
     }),

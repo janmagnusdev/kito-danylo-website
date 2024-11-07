@@ -12,6 +12,10 @@ const translations: Translations = {
     hi: "Hi, I am ",
     hi2: "Great that you are here! Convince yourself of the power of movement and achieve your wishes and goals together with me!",
   },
+  offerCard: {
+    title: "My Offers",
+    subtitle: "You'll find it here",
+  },
 };
 
 export default translations;

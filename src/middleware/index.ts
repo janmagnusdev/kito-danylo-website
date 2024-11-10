@@ -18,7 +18,7 @@ export const userMiddleware = defineMiddleware(async (context, next) => {
 });
 
 const getLocale = (url: string) => {
-  const match = url.match(/\/([a-z]{2})\//);
+  const match = url.match(/(?<!\/)\/([a-z]{2}).*$/);
   return match ? match[1] : null;
 };
 

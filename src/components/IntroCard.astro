@@ -23,35 +23,38 @@ const targetLocale = locale === "de" ? "en" : "de";
           <b class="font-bold">Kito Danylo</b>. {t("introCard.hi2")}
         </p>
       </div>
-      <div class="flex gap-4">
-        <a href={LINKS.email} aria-label="mail profile" target="_blank">
-          <Button aria-label="mail profile">
-            <Icon name="ri:mail-fill" class="h-6" />
-            <span class="sr-only">Email me</span>
-          </Button>
-        </a>
+      <div class="flex gap-4 flex-wrap">
         <a
           href={LINKS.instagram}
           aria-label="instagram profile"
           target="_blank"
         >
           <Button aria-label="instagram profile">
-            <Icon name="ri:instagram-fill" class="h-6" />
+            <Icon name="ri:instagram-fill" class="h-7" />
             <span class="sr-only">Instagram Profile</span>
           </Button>
         </a>
         <a href={LINKS.xing} aria-label="xing profile" target="_blank">
           <Button aria-label="github profile">
-            <Icon name="ri:xing-fill" class="h-6" />
+            <Icon name="ri:xing-fill" class="h-7" />
             <span class="sr-only">Xing Profile</span>
           </Button>
         </a>
         <Tooltip client:visible>
           <Button aria-label="easter egg btn">
-            <Icon name="ri:emotion-laugh-line" class="h-6" />
+            <Icon name="ri:emotion-laugh-line" class="h-7" />
             <span class="sr-only">Easter egg button</span>
           </Button>
         </Tooltip>
+
+        <a href={LINKS.email} aria-label="mail profile" target="_blank">
+          <Button aria-label="mail profile">
+            <span class="flex flex-row items-center justify-between"
+              >Buche jetzt!
+              <Icon name="ri:mail-fill" class="ml-2" /></span
+            >
+          </Button>
+        </a>
       </div>
       <LanguageSwitcher targetLanguage={targetLocale} originLanguage={locale} />
     </div>

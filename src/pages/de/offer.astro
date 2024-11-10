@@ -2,7 +2,17 @@
 import Layout from "../../layouts/Layout.astro";
 import DropdownCard from "../../components/Card/DropdownCard.astro";
 import { offerContentLinkColors } from "../../../uno.config";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { type App } from "../../env";
+
+const { locale } = Astro.locals as App.Locals;
 ---
+
+<style>
+  .back-button {
+    max-width: fit-content;
+  }
+</style>
 
 <script>
   import { stagger, spring, timeline, type TimelineDefinition } from "motion";
@@ -31,120 +41,129 @@ import { offerContentLinkColors } from "../../../uno.config";
   title="Kito Danylo - Personal Trainer"
   description="Hi, ich bin Kito Danylo, dein Personal Trainer!"
 >
-  <main
-    class="text-white m-auto p-2 grid gap-2 grid-content-center grid-items-start max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-3 lg:gap-4 lg:max-h-[850px]"
-  >
-    <DropdownCard
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-4"
-      borderColor={`border-${offerContentLinkColors[0]}`}
-      title="Athletik & Performance"
+  <div class="max-w-6xl lg:p-8">
+    <div
+      class="grid p-2 md:pt-8 sm:p-4 md:p-6 gap-2 grid-rows-1 grid-columns-1 grid-items-center md:grid-content-start w-full"
     >
-      <div class="flex flex-col gap-4 text-sm">
-        <p>
-          Die Entwicklung des Sports erfordert mehr als Spieler/Athleten mit
-          Talent und Skills. Top-Sportler sollten auch vielseitige Top-Athleten
-          sein um auf dieser Basis ihr Potential maximal nutzen und
-          verletzungsfrei performen zu können.
-        </p>
-        <p>
-          Hier geht es darum, deine Grenzen nach oben zu verlagern und
-          detailliert mit viel Spaß an deiner Leistung als Athlet zu arbeiten.
-          Schnelligkeit, Kraft, Dynamik und Stabilität abgestimmt auf deine
-          individuellen Defizite, Stärken und deine Sportart. Klingt
-          interessant? Dann lass uns deine Performance auf die nächste Stufe
-          bringen!
-        </p>
-      </div>
-    </DropdownCard>
-    <div class="md:col-span-1 md:row-span-2 hidden md:block"></div>
-    <DropdownCard
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-4"
-      borderColor={`border-${offerContentLinkColors[1]}`}
-      title="Yoga, Meditation und Körperwahrnehmung"
+      <a
+        href={`/${locale}`}
+        class="back-button col-span-1 row-span-1 text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg"
+        >Back</a
+      >
+    </div>
+    <main
+      class="text-white m-auto p-2 grid gap-2 grid-items-center overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-3 lg:gap-4 lg:max-h-[850px]"
     >
-      <div class="flex flex-col gap-4 text-sm">
-        <p>
-          Yoga beinhaltet viele Elemente, die sowohl Energien freisetzen als
-          auch sammeln können. Die Asanas (Körperhaltungen) gehen von
-          harmonisierenden Bewegungsabläufen und intensiven Flows zu Atem- und
-          Entspannungstechniken. Energie-Gewinnung, Harmonie der einzelnen
-          Segmente des Körpers und der Fokus für das Bewusstsein auf sich selbst
-          stehen dabei im Vordergrund.
-        </p>
-        <p>Where the focus goes, energy flows!</p>
-      </div>
-    </DropdownCard>
-    <DropdownCard
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-4"
-      title="Training, Ernährung & Lifestyle"
-    >
-      <div class="flex flex-col gap-4 text-sm">
-        <p>
-          Alles hängt miteinander zusammen und das Eine funktioniert nicht ohne
-          das Andere. <span class={`text-${offerContentLinkColors[2]}`}
-            >Gesunde Ernährung</span
-          > führt zu einer höheren <span
-            class={`text-${offerContentLinkColors[3]}`}
-            >Vitalität und Leistungsfähigkeit</span
-          >, genauso wie Bewegung und Training. Beides kombiniert bietet die
-          optimale Basis, um täglich mehr Lebensqualität zu spüren.
-        </p>
-        <p>
-          Wir können also nur <span class={`text-${offerContentLinkColors[0]}`}
-            >das von unserem Körper an Gegenleistung</span
-          > erwarten, was wir ihm zur Verfügung stellen. Gemeinsam entwickeln wir
-          einen alltagstauglichen und gleichzeitig effizienten Weg, deine Ernährung,
-          das Training und somit dein <span
-            class={`text-${offerContentLinkColors[1]}`}>Wohlbefinden</span
-          > und die Leistungsfähigkeit kontinuierlich zu optimieren.
-        </p>
-      </div>
-    </DropdownCard>
-    <DropdownCard
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-4"
-      title="Ernährung"
-      borderColor={`border-${offerContentLinkColors[2]}`}
-    >
-      <div class="flex flex-col gap-4 text-sm">
-        <p>
-          Gesunde Ernährung ist kein Verzicht, sondern ein Geschenk an dich
-          selbst! Mit individuellen Ernährungsstrategien, die auf Geschmack,
-          Unverträglichkeiten und Optimierung des Körpergefühls und
-          Leistungsfähigkeit basieren.
-        </p>
-        <p>
-          Der Fokus liegt darauf, aus den richtigen Produkten, Nährstoffen und
-          Gerichten eine Alltagsfreundliche und leicht umzusetzende Routine zu
-          schaffen.
-        </p>
-      </div>
-    </DropdownCard>
-    <DropdownCard
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-4"
-      borderColor={`border-${offerContentLinkColors[3]}`}
-      title="Bewegung & Fitness im Alltag"
-    >
-      <div class="flex flex-col gap-4 text-sm">
-        <p>
-          Unser tägliches Leben kann sehr fordernd und auch nicht selten
-          fremdbestimmt sein. Wir tragen Verantwortung, haben berufliche und
-          private Verpflichtungen und dabei stellen wir häufig fest, dass unsere
-          Bedürfnisse schnell mal auf der Strecke bleiben können.
-        </p>
-        <p>
-          Deine richtige Dosis an Trainingsintensität und Variabilität mit der
-          richtigen Übungsauswahl ist dabei entscheidend. Dein Training wird so
-          abgestimmt, dass Du dich sowohl gesundheitlich als auch emotional
-          stabiler/freier fühlst und an vielen Tagen mit einem Lachen starten
-          kannst, um bei schönen und auch weniger schönen Aufgaben die
-          Leichtigkeit zu bewahren.
-        </p>
-      </div>
-    </DropdownCard>
-  </main>
+      <!--<div class="md:col-span-2 md:row-span-1 w-50 h-full"></div>-->
+      <DropdownCard
+        colSpan="md:col-span-1"
+        rowSpan="md:row-span-4"
+        borderColor={`border-${offerContentLinkColors[0]}`}
+        title="Athletik & Performance"
+      >
+        <div class="flex flex-col gap-4 text-sm">
+          <p>
+            Die Entwicklung des Sports erfordert mehr als Spieler/Athleten mit
+            Talent und Skills. Top-Sportler sollten auch vielseitige
+            Top-Athleten sein um auf dieser Basis ihr Potential maximal nutzen
+            und verletzungsfrei performen zu können.
+          </p>
+          <p>
+            Hier geht es darum, deine Grenzen nach oben zu verlagern und
+            detailliert mit viel Spaß an deiner Leistung als Athlet zu arbeiten.
+            Schnelligkeit, Kraft, Dynamik und Stabilität abgestimmt auf deine
+            individuellen Defizite, Stärken und deine Sportart. Klingt
+            interessant? Dann lass uns deine Performance auf die nächste Stufe
+            bringen!
+          </p>
+        </div>
+      </DropdownCard>
+      <div class="md:col-span-1 md:row-span-2 hidden md:block"></div>
+      <DropdownCard
+        colSpan="md:col-span-1"
+        rowSpan="md:row-span-4"
+        borderColor={`border-${offerContentLinkColors[1]}`}
+        title="Yoga, Meditation und Körperwahrnehmung"
+      >
+        <div class="flex flex-col gap-4 text-sm">
+          <p>
+            Yoga beinhaltet viele Elemente, die sowohl Energien freisetzen als
+            auch sammeln können. Die Asanas (Körperhaltungen) gehen von
+            harmonisierenden Bewegungsabläufen und intensiven Flows zu Atem- und
+            Entspannungstechniken. Energie-Gewinnung, Harmonie der einzelnen
+            Segmente des Körpers und der Fokus für das Bewusstsein auf sich
+            selbst stehen dabei im Vordergrund.
+          </p>
+          <p>Where the focus goes, energy flows!</p>
+        </div>
+      </DropdownCard>
+      <DropdownCard
+        colSpan="md:col-span-1"
+        rowSpan="md:row-span-4"
+        initialOpen={true}
+        middle={true}
+        title="Training, Ernährung & Lifestyle"
+      >
+        <div class="flex flex-col gap-4 text-sm">
+          <p>
+            Alles hängt miteinander zusammen und das Eine funktioniert nicht
+            ohne das Andere. Gesunde Ernährungführt zu einer höheren Vitalität
+            und Leistungsfähigkeit, genauso wie Bewegung und Training. Beides
+            kombiniert bietet die optimale Basis, um täglich mehr Lebensqualität
+            zu spüren.
+          </p>
+          <p>
+            Wir können also nur das von unserem Körper an Gegenleistung
+            erwarten, was wir ihm zur Verfügung stellen. Gemeinsam entwickeln
+            wir einen alltagstauglichen und gleichzeitig effizienten Weg, deine
+            Ernährung, das Training und somit dein Wohlbefinden und die
+            Leistungsfähigkeit kontinuierlich zu optimieren.
+          </p>
+        </div>
+      </DropdownCard>
+      <DropdownCard
+        colSpan="md:col-span-1"
+        rowSpan="md:row-span-4"
+        title="Ernährung"
+        borderColor={`border-${offerContentLinkColors[2]}`}
+      >
+        <div class="flex flex-col gap-4 text-sm">
+          <p>
+            Gesunde Ernährung ist kein Verzicht, sondern ein Geschenk an dich
+            selbst! Mit individuellen Ernährungsstrategien, die auf Geschmack,
+            Unverträglichkeiten und Optimierung des Körpergefühls und
+            Leistungsfähigkeit basieren.
+          </p>
+          <p>
+            Der Fokus liegt darauf, aus den richtigen Produkten, Nährstoffen und
+            Gerichten eine Alltagsfreundliche und leicht umzusetzende Routine zu
+            schaffen.
+          </p>
+        </div>
+      </DropdownCard>
+      <DropdownCard
+        colSpan="md:col-span-1"
+        rowSpan="md:row-span-4"
+        borderColor={`border-${offerContentLinkColors[3]}`}
+        title="Bewegung & Fitness im Alltag"
+      >
+        <div class="flex flex-col gap-4 text-sm">
+          <p>
+            Unser tägliches Leben kann sehr fordernd und auch nicht selten
+            fremdbestimmt sein. Wir tragen Verantwortung, haben berufliche und
+            private Verpflichtungen und dabei stellen wir häufig fest, dass
+            unsere Bedürfnisse schnell mal auf der Strecke bleiben können.
+          </p>
+          <p>
+            Deine richtige Dosis an Trainingsintensität und Variabilität mit der
+            richtigen Übungsauswahl ist dabei entscheidend. Dein Training wird
+            so abgestimmt, dass Du dich sowohl gesundheitlich als auch emotional
+            stabiler/freier fühlst und an vielen Tagen mit einem Lachen starten
+            kannst, um bei schönen und auch weniger schönen Aufgaben die
+            Leichtigkeit zu bewahren.
+          </p>
+        </div>
+      </DropdownCard>
+    </main>
+  </div>
 </Layout>

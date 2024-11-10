@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { offerContentLinkColors } from "../../../uno.config";
 
 interface Props {
   title?: string;
@@ -12,6 +13,8 @@ interface Props {
   width?: string;
   borderColor?: string;
   class?: string;
+  initialOpen?: boolean;
+  middle?: boolean;
 }
 
 const {
@@ -24,38 +27,121 @@ const {
   height,
   borderColor,
   class: classNames,
+  initialOpen,
+  middle,
 } = Astro.props;
 ---
 
 <style>
-  .hide-content {
-    display: none;
+  .dropdown-card {
+    --colored-border-width: 1px;
+    --colored-border-length: 25%;
+  }
+
+  .top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--colored-border-length);
+    width: var(--colored-border-length);
+    border-top-width: var(--colored-border-width);
+    border-left-width: var(--colored-border-width);
+    /* same as lg-radius, but only for one corner */
+    border-radius: 0.5rem 0 0 0;
+  }
+
+  .top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: var(--colored-border-length);
+    width: var(--colored-border-length);
+    border-right-width: var(--colored-border-width);
+    border-top-width: var(--colored-border-width);
+    /* same as lg-radius, but only for one corner */
+    border-radius: 0 0.5rem 0 0;
+  }
+  .bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: var(--colored-border-length);
+    width: var(--colored-border-length);
+    border-right-width: var(--colored-border-width);
+    border-bottom-width: var(--colored-border-width);
+    /* same as lg-radius, but only for one corner */
+    border-radius: 0 0 0.5rem 0;
+  }
+  .bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: var(--colored-border-length);
+    width: var(--colored-border-length);
+    border-left-width: var(--colored-border-width);
+    border-bottom-width: var(--colored-border-width);
+    /* same as lg-radius, but only for one corner */
+    border-radius: 0 0 0 0.5rem;
+  }
+
+  .outer:after {
+    right: 0;
+    border-left-width: 3px;
+    border-top-width: 3px;
+  }
+  .outer:before {
+  }
+  .inner:before {
+    bottom: 0;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+  }
+  .inner:after {
+    bottom: 0;
+    right: 0;
+    border-right: 3px solid blue;
+    border-bottom: 3px solid blue;
+  }
+
+  .content-to-hide {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .content-to-hide.expanded {
+    max-height: 300px;
   }
 </style>
 
 <script>
-  // TODO: write logic for plopping open the content and hiding it again on focus & focusend
   const dropdownCards = document.querySelectorAll(".dropdown-card");
+
   dropdownCards.forEach((dropdownCard) => {
     const icon = dropdownCard.querySelector("svg.the-icon");
     const contentToHide = dropdownCard.querySelector("div.content-to-hide");
 
-    dropdownCard.addEventListener("focus", (event) => {
-      if (icon) {
-        icon.classList.add("rotate-180");
+    const eventHandler = (_event: Event) => {
+      let open = contentToHide?.classList.contains("expanded") ?? false;
+      if (open) {
+        if (icon) {
+          icon.classList.remove("rotate-180");
+        }
+        if (contentToHide) {
+          contentToHide.classList.remove("expanded");
+        }
+      } else {
+        if (icon) {
+          icon.classList.add("rotate-180");
+        }
+        if (contentToHide) {
+          contentToHide.classList.add("expanded");
+        }
       }
-      if (contentToHide) {
-        contentToHide.classList.remove("hide-content");
-      }
-    });
-    dropdownCard.addEventListener("focusout", () => {
-      if (icon) {
-        icon.classList.remove("rotate-180");
-      }
-      if (contentToHide) {
-        contentToHide.classList.add("hide-content");
-      }
-    });
+      open = !open;
+    };
+
+    dropdownCard.addEventListener("pointerup", eventHandler);
   });
 </script>
 
@@ -63,17 +149,32 @@ const {
   tabindex="0"
   class={`card dropdown-card group overflow-hidden transform-y-[-40%] bg-darkslate-500 shadow-lg rounded-lg p-6 border ${borderColor ? borderColor : "border-darkslate-100"} hover:border-primary-500 align-start flex-none ${height} justify-start relative transform perspective-1200 w-full transition duration-75 ease-in-out col-span-1 ${
     colSpan || "md:col-span-2"
-  } ${rowSpan || ""} ${classNames}`}
+  } ${rowSpan || ""} ${classNames} relative`}
 >
-  <a href={href} class={`${colorText || " "}`}>
-    <Icon
-      name="ri:arrow-up-s-line"
-      class="the-icon h-6 float-right group-hover:text-primary-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform ease-in-out duration-500 z-20"
-    />
-    <h2 class="text-xl font-bold m-0 z-20">{title}</h2>
-    <p class="m-0 font-light text-base">{body}</p>
-    <div class="content-to-hide hide-content transition-all duration-500">
-      <slot />
-    </div>
-  </a>
+  {
+    middle ? (
+      <Fragment>
+        <div class={`top-left border-${offerContentLinkColors[0]}`} />
+        <div class={`top-right border-${offerContentLinkColors[1]}`} />
+        <div class={`bottom-left border-${offerContentLinkColors[2]}`} />
+        <div class={`bottom-right border-${offerContentLinkColors[3]}`} />
+      </Fragment>
+    ) : (
+      ""
+    )
+  }
+
+  <div class="inner">
+    <a href={href} class={`${colorText || " "}`}>
+      <Icon
+        name="ri:arrow-up-s-line"
+        class="the-icon h-6 float-right group-hover:text-primary-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform ease-in-out duration-500 z-20"
+      />
+      <h2 class="text-xl font-bold m-0 z-20">{title}</h2>
+      <p class="m-0 font-light text-base">{body}</p>
+      <div class=`content-to-hide ${initialOpen ? "expanded": ""}`>
+        <slot />
+      </div>
+    </a>
+  </div>
 </div>

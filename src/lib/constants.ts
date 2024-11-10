@@ -1,7 +1,7 @@
 export const LINKS = {
   instagram: "https://www.instagram.com/coachkito/",
   xing: "https://www.xing.com/profile/Kito_Danylo",
-  email: "mailto:mail@kito-coaching.com",
+  email: "mailto:training@kitocoaching.de",
 };
 
 export const loaderAnimation = [

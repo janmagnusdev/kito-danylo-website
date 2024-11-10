@@ -12,7 +12,7 @@ import myI18nextIntegration from "./src/lib/my-i18next-integration";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kito-coaching.com/",
+  site: "https://kitocoaching.de/",
   trailingSlash: "ignore",
   i18n: {
     defaultLocale: "de",
@@ -26,8 +26,8 @@ export default defineConfig({
     sitemap(),
     robotsTxt({
       sitemap: [
-        "https://kito-coaching.com/sitemap-index.xml",
-        "https://kito-coaching.com/sitemap-0.xml",
+        "https://kitocoaching.de/sitemap-index.xml",
+        "https://kitocoaching.de/sitemap-0.xml",
       ],
     }),
     solidJs(),

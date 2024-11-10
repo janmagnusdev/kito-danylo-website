@@ -42,8 +42,9 @@ import { AUTHOR_GITHUB_PROFILE } from "../../lib/constants";
   >
     <IntroCard />
     <AboutMe />
-    <TimeZone />
     <Now />
+    <TimeZone />
+
     <ContactsCard />
     <div class="md:col-span-1 md:row-span-2 gap-2 grid gap-2">
       <Card
@@ -52,7 +53,6 @@ import { AUTHOR_GITHUB_PROFILE } from "../../lib/constants";
         title="Countries I visited"
         href={getRelativeLocaleUrl("de", "travel")}
         colorText="text-neutral-900"
-        className="mb-2"
       >
         <div class="h-full w-full absolute inset-0 -z-10">
           <Globe client:load />
@@ -75,6 +75,7 @@ import { AUTHOR_GITHUB_PROFILE } from "../../lib/constants";
         </p>
       </Card>
     </div>
+
     <Card
       colSpan="md:col-span-1"
       rowSpan="md:row-span-2 flex"

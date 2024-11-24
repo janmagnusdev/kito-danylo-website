@@ -6,7 +6,7 @@ import ContactsCard from "../../components/ContactsCard.astro";
 import TimeZone from "../../components/TimeZoneCard.astro";
 import AboutMe from "../../components/AboutMe.astro";
 import Now from "../../components/OfferCard.astro";
-import Globe from "../../components/Globe";
+import CoachingCounter from "../../components/CoachingCounter";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { AUTHOR_GITHUB_PROFILE } from "../../lib/constants";
 import { type App } from "../../env";
@@ -53,13 +53,9 @@ const { locale } = Astro.locals as App.Locals;
       <Card
         colSpan="md:col-span-1"
         rowSpan="md:row-span-1"
-        title="Countries I visited"
-        href={getRelativeLocaleUrl("de", "travel")}
         colorText="text-neutral-900"
       >
-        <div class="h-full w-full absolute inset-0 -z-10">
-          <Globe client:load />
-        </div>
+        <CoachingCounter client:load />
       </Card>
       <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
         <p class="text-xs">

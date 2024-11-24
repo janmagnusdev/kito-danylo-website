@@ -9,6 +9,9 @@ import Now from "../../components/OfferCard.astro";
 import Globe from "../../components/Globe";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { AUTHOR_GITHUB_PROFILE } from "../../lib/constants";
+import { type App } from "../../env";
+
+const { locale } = Astro.locals as App.Locals;
 ---
 
 <script>
@@ -60,18 +63,24 @@ import { AUTHOR_GITHUB_PROFILE } from "../../lib/constants";
       </Card>
       <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
         <p class="text-xs">
-          © 2024 · Crafted with 💙 using <a
+          © 2024 ·
+          <a
+            class="text-primary-500"
+            href={getRelativeLocaleUrl(locale, "imprint")}>Impressum</a
+          >
+          · Crafted with 💙 using <a
             href="https://astro.build/"
             target="_blank"
-            class="text-primary-500">Astro</a
-          > by <a class="text-primary-500" href={AUTHOR_GITHUB_PROFILE}
+            class="text-primary-700">Astro</a
+          > by <a class="text-primary-700" href={AUTHOR_GITHUB_PROFILE}
             >@janmagnusdev</a
-          >. <a
+          > ·
+          <a
             class="text-primary-700"
             href="https://github.com/Ladvace/astro-bento-portfolio">Template</a
           > from <a class="text-primary-700" href="https://github.com/Ladvace"
             >Gianmarco</a
-          >.
+          >
         </p>
       </Card>
     </div>

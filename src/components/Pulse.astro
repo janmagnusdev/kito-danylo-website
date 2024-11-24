@@ -1,4 +1,14 @@
-<span class="relative flex h-3 w-3">
+---
+import { type App } from "../env";
+
+interface Props {
+  class?: string;
+}
+
+const { class: classNames } = Astro.props;
+---
+
+<span class={`relative flex h-3 w-3 ${classNames}`}>
   <span
     class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
   ></span>

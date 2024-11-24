@@ -15,7 +15,10 @@
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/solid-js": "^4.4.2",
     "@astrojs/svelte": "^5.7.1",
+    "@iconify-icons/solar": "^1.2.3",
+    "@iconify-json/fa6-solid": "^1.2.1",
     "@iconify-json/ri": "^1.1.21",
+    "@iconify-json/solar": "^1.2.1",
     "@rive-app/canvas": "^2.19.3",
     "astro": "^4.16.8",
     "astro-icon": "^1.1.0",
@@ -31,9 +34,7 @@
     "motion": "^10.18.0",
     "reading-time": "^1.5.0",
     "solid-js": "^1.8.18",
-    "svelte": "^4.2.18",
-    "@iconify-icons/solar": "^1.2.3",
-    "@iconify-json/solar": "^1.2.1"
+    "svelte": "^4.2.18"
   },
   "devDependencies": {
     "@types/d3": "^7.4.3",

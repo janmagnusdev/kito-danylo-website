@@ -1,5 +1,6 @@
-import { createSignal } from "solid-js";
+import { createSignal, onCleanup, onMount } from "solid-js";
 import { DateTime, IANAZone } from "luxon";
+import { styled } from "solid-styled-components";
 
 const weekDayCoachingMap = {
   1: 2,
@@ -54,6 +55,21 @@ const simulateCoachings = (forDate: DateTime): number => {
   return counter;
 };
 
+const StyledCounter = styled.span`
+  --hue-start: 25;
+  --hue-end: 98;
+  --vp-c-brand-1: hsl(var(--hue-start) 67.6 51.6);
+  --vp-c-brand-next: hsl(var(--hue-end) 50.2 41.8);
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    var(--vp-c-brand-1) 30%,
+    var(--vp-c-brand-next)
+  );
+  background: var(--vp-home-hero-name-background);
+  background-clip: text;
+  color: transparent;
+`;
+
 const CoachingCounterComponent = () => {
   const timeZone = IANAZone.create("Europe/Berlin");
 
@@ -61,12 +77,37 @@ const CoachingCounterComponent = () => {
 
   const startCoachings = simulateCoachings(now);
   let [counter, _setCounter] = createSignal(startCoachings);
+  let counterRef: HTMLSpanElement;
+  let interval: ReturnType<typeof setInterval>;
+  let hueStart = 25;
+  let hueEnd = 98;
+
+  onMount(() => {
+    interval = setInterval(() => {
+      hueStart = hueStart + 3;
+      hueEnd = hueEnd + 3;
+      hueStart = hueStart < 360 ? hueStart : 0;
+      hueEnd = hueEnd < 360 ? hueEnd : 0;
+
+      counterRef.style.setProperty("--hue-start", `${hueStart}`);
+      counterRef.style.setProperty("--hue-end", `${hueEnd}`);
+    }, 75);
+  });
+
+  onCleanup(() => {
+    clearInterval(interval);
+  });
 
   return (
     <div class="flex flex-col justify-center items-center w-full h-full">
-      <div class="w-full font-mono">{now.setLocale("de").toFormat("ff")}</div>
+      <div class="w-full tabular-nums">
+        {now.setLocale("de").toFormat("ff")}
+      </div>
       <div class="w-full">
-        <span>{counter()}</span> Coachings bis jetzt
+        <StyledCounter class="font-bold" ref={counterRef}>
+          {counter()}
+        </StyledCounter>{" "}
+        Coachings bis jetzt
       </div>
     </div>
   );

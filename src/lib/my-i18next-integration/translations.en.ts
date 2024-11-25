@@ -1,6 +1,7 @@
-const translations: Translations = {
-  myKey: "myTranslation",
+const translations = {
   welcome: "welcome",
+  layoutTitleHi: "Hi, I'm Kito Danylo, your personal trainer!",
+  back: "Back",
   aboutMe: {
     title: "About me",
     paragraph1:
@@ -15,6 +16,31 @@ const translations: Translations = {
   offerCard: {
     title: "My Offers",
     subtitle: "You'll find it here",
+  },
+  imprint: {
+    law: "Information according to § 5 DDG",
+    represent: "Represented by:",
+    contact: "Contact:",
+    tel: "Phone:",
+    technical: "Layout and technical realization:",
+    copyright: "Copyright: ",
+    copyrightNotice:
+      "            The content and works created by the operators of this site are subject to German copyright law,\n" +
+      "            are subject to German copyright law. Any form of reproduction,\n" +
+      "            processing, distribution or any other use outside the legally permitted\n" +
+      "            permitted by law requires prior written authorisation. Downloads\n" +
+      "            and copies of this website may only be used for private and non-commercial\n" +
+      "            commercial purposes.\n" +
+      "            If content on this website does not originate from the operator itself,\n" +
+      "            the rights of third parties are taken into account and such content is\n" +
+      "            labelled accordingly. Should you nevertheless notice a possible infringement of copyright\n" +
+      "            we would ask you to notify us. As soon as we become aware of any legal infringements\n" +
+      "            we will remove the content in question immediately.",
+    generator: {
+      from: "Imprint from ",
+      of: "of ",
+      lawyers: "Specialist lawyers for family law",
+    },
   },
 };
 

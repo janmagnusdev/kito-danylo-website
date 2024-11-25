@@ -91,7 +91,7 @@ const { locale } = Astro.locals as App.Locals;
       colSpan="md:col-span-1"
       rowSpan="md:row-span-2 flex"
       title="Blog"
-      href={getRelativeLocaleUrl("en", "blog")}
+      href={getRelativeLocaleUrl(locale, "blog")}
     />
   </main>
 </Layout>

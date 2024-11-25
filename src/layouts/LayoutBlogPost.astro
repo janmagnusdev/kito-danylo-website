@@ -3,6 +3,7 @@ import { formatDate } from "../lib/helpers";
 import type { MarkdownLayoutProps } from "astro";
 import BasicLayout from "./BasicLayout.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import LinkButton from "@components/LinkButton.astro";
 
 type Props = MarkdownLayoutProps<{
   title: string;
@@ -23,11 +24,11 @@ const { frontmatter } = Astro.props;
   title={`Kito Danylo - ${frontmatter.title}`}
   description={frontmatter.description}
 >
-  <main class="mx-auto max-w-3xl w-full h-screen p-8 text-neutral-100">
-    <a
-      href={getRelativeLocaleUrl(frontmatter.locale, "blog")}
-      class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg mb-8"
-      >Back</a
+  <main
+    class="mx-auto max-w-3xl w-full h-screen p-8 dark:text-neutral-100 light:text-neutral-800"
+  >
+    <LinkButton link={getRelativeLocaleUrl(frontmatter.locale, "blog")}
+      >Back</LinkButton
     >
     <div class="my-10">
       <h1 class="text-5xl font-semibold">{frontmatter.title}</h1>

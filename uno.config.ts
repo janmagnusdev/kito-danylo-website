@@ -84,6 +84,7 @@ export default defineConfig({
     },
   },
   presets: [
+    // dont change dark: 'media' - we only use media queries for dark mode on this site
     presetUno({ dark: "media" }),
     presetWebFonts({
       provider: "fontshare",

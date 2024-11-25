@@ -2,6 +2,7 @@
 import Globe from "../../components/Globe";
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import LinkButton from "@components/LinkButton.astro";
 ---
 
 <script>
@@ -23,11 +24,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
   description="A 3d globe showing countries that I have visited so far"
   page="travel"
 >
-  <a
-    href={getRelativeLocaleUrl("en", "/")}
-    class="absolute bg-neutral-900 hover:bg-neutral-800 top-4 left-4 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg"
-    >Back</a
-  >
+  <LinkButton link={getRelativeLocaleUrl("en", "/")}>Back</LinkButton>
 
   <Globe client:load />
 </BasicLayout>

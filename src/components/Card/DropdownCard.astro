@@ -21,7 +21,8 @@ import { createGenerator } from "unocss";
 import config from "uno.config";
 
 const ctx = createGenerator(config);
-const scrollbarColor = ctx.config.theme.colors["gray"]["500"];
+const scrollbarColorDark = ctx.config.theme.colors["gray"]["500"];
+const scrollbarColorLight = ctx.config.theme.colors["gray"]["200"];
 
 const {
   title,
@@ -38,10 +39,17 @@ const {
 } = Astro.props;
 ---
 
-<style define:vars={{ scrollbarColor }}>
+<style define:vars={{ scrollbarColorDark, scrollbarColorLight }}>
   .dropdown-card {
     --colored-border-width: 1px;
     --colored-border-length: 25%;
+    --scrollbarColor: var(--scrollbarColorLight);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dropdown-card {
+      --scrollbarColor: var(--scrollbarColorDark);
+    }
   }
 
   .top-left {
@@ -150,10 +158,35 @@ const {
 
 <div
   tabindex="0"
-  class={`card dropdown-card group overflow-hidden transform-y-[-40%] bg-darkslate-500 shadow-lg rounded-lg p-6 border ${borderColor ? borderColor : "border-darkslate-100"} hover:border-primary-500 align-start flex-none ${height} justify-start relative transform perspective-1200 w-full transition duration-75 ease-in-out col-span-1 ${
-    colSpan || "md:col-span-2"
-  } ${rowSpan || ""} ${classNames} relative
-  md:max-h-xs
+  class={`card 
+    dropdown-card 
+    group 
+    overflow-hidden 
+    transform-y-[-40%] 
+    dark:bg-darkslate-500 
+    light:bg-lightslate-50 
+    shadow-lg 
+    rounded-lg 
+    p-6 
+    border ${borderColor ?? ""} 
+    hover:border-primary-500 
+    align-start 
+    flex-none 
+    ${height} 
+    justify-start 
+    relative 
+    transform 
+    perspective-1200 
+    w-full 
+    transition 
+    duration-75 
+    ease-in-out 
+    col-span-1 
+    ${colSpan || "md:col-span-2"} 
+    ${rowSpan || ""} 
+    ${classNames} 
+    relative
+    md:max-h-xs
   `}
 >
   {

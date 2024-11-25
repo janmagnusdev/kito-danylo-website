@@ -77,7 +77,7 @@ const CoachingCounterComponent = () => {
 
   const startCoachings = simulateCoachings(now);
   let [counter, _setCounter] = createSignal(startCoachings);
-  let counterRef: HTMLSpanElement;
+  let counterRef!: HTMLSpanElement;
   let interval: ReturnType<typeof setInterval>;
   let hueStart = 25;
   let hueEnd = 98;

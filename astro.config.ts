@@ -25,12 +25,21 @@ export default defineConfig({
     },
   },
   integrations: [
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: "de",
+        locales: {
+          de: "de",
+          en: "en",
+        },
+      },
+    }),
     robotsTxt({
       sitemap: [
         "https://kitocoaching.de/sitemap-index.xml",
         "https://kitocoaching.de/sitemap-0.xml",
       ],
+      host: true,
     }),
     solidJs(),
     UnoCSS({ injectReset: true }),

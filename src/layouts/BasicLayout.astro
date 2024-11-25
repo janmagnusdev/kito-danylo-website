@@ -17,10 +17,7 @@ interface Props {
 }
 
 const { title, description, page, slug, frontmatter } = Astro.props;
-const image =
-  page === "travel"
-    ? `${Astro.site}globe_preview.webp"`
-    : `${Astro.site}og-image.png`;
+const ogImageLink = `${Astro.site}og-image.png`;
 
 const structuredData =
   page !== "blog"
@@ -30,7 +27,7 @@ const structuredData =
         name: "Kito Danylo",
         url: Astro.site,
         sameAs: [LINKS.xing, LINKS.instagram, LINKS.email],
-        // image: `${Astro.site}og-image.png`,
+        image: `${Astro.site}og-image.png`,
         jobTitle: "Personal Trainer",
         worksFor: {
           "@type": "Organization",
@@ -55,8 +52,7 @@ const structuredData =
         },
         headline: frontmatter?.title || title,
         description: frontmatter?.description || title,
-        // TODO: og-image of kito
-        // image: {`${Astro.site}og-image.png`},
+        image: `${Astro.site}og-image.png`,
         author: {
           "@type": "Person",
           name: "Kito Danylo",
@@ -66,10 +62,10 @@ const structuredData =
         publisher: {
           "@type": "Organization",
           name: "Kito Danylo",
-          // logo: {
-          //   "@type": "ImageObject",
-          //   url: "https://kitocoaching.de/og-image.png",
-          // },
+          logo: {
+            "@type": "ImageObject",
+            url: `${Astro.site}og-image.png`,
+          },
         },
         datePublished: frontmatter?.pubDate || new Date().toISOString(),
         dateModified: frontmatter?.pubDate || new Date().toISOString(),
@@ -91,16 +87,12 @@ const structuredData =
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.origin} />
-    {
-      /* <meta property="og:image" content={image || `${Astro.site}og-image.png`} /> */
-    }
+    <meta property="og:image" content={ogImageLink} />
     <!-- Basic Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    {
-      /* <meta name="twitter:image" content={image || `${Astro.site}og-image.png`} /> */
-    }
+    <meta name="twitter:image" content={ogImageLink} />
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />
     <link

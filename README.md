@@ -1,10 +1,13 @@
 # ⚡️Kito Danylo Website
 
+![kit-danylo-website | Bento-like Personal Porfolio Template](public/preview.png)
+
 ## A personal portfolio website made using `Astro`.
 
 ## Tech Stack
 
 - [Astro](https://astro.build)
+- [SolidJS](https://www.solidjs.com)
 - [unocss](https://unocss.dev/)
 - [motion](https://motion.dev/)
 - [d3](https://d3js.org/)
@@ -34,12 +37,6 @@ $ pnpm run dev
 or
 $ npm run dev
 ```
-
-## REMOVE THE umami analytics script tag (or replace it with your id) in `src/layouts/Layout.astro`
-
-# Configuration
-
-remember to replace the `site` and other properties with your data in `astro.config.ts`
 
 ## Authors ❤️
 

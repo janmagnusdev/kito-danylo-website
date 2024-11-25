@@ -28,12 +28,15 @@ import Card from "./Card/index.astro";
   });
 </script>
 
-<Card colSpan="lg:col-span-1" rowSpan="md:row-span-2" title="Time zone">
-  <time
-    datetime=""
-    id="timeDisplay"
-    class="text-size-2xl xl:whitespace-nowrap h-[calc(100%-28px)] font-serif flex justify-center items-center"
-  >
-    {formatTime(getCurrentTime())}
-  </time>
+<Card
+  colSpan="lg:col-span-1"
+  class="md:min-w-xs lg:min-w-auto"
+  rowSpan="md:row-span-2"
+  title="Time zone"
+>
+  <div class="flex text-xl items-center justify-center h-full font-serif">
+    <time datetime="" id="timeDisplay" class="flex items-center">
+      {formatTime(getCurrentTime())}
+    </time>
+  </div>
 </Card>

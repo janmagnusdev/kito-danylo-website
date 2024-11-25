@@ -72,7 +72,7 @@ const GlobeComponent = () => {
   });
 
   return (
-    <div class="flex flex-col text-white justify-center items-center w-full h-full">
+    <div class="flex flex-col   justify-center items-center w-full h-full">
       <div class="w-full" ref={mapContainer}></div>
     </div>
   );

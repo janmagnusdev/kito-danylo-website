@@ -58,6 +58,18 @@ export default defineConfig({
         800: "#0E0E0E",
         900: "#0B0B0B" /* Deeper and darker */,
       },
+      lightslate: {
+        50: "#FAFAFA",
+        100: "#F5F5F5",
+        200: "#EEEEEE",
+        300: "#E0E0E0",
+        400: "#D6D6D6",
+        500: "#CCCCCC" /* Exactly your midpoint */,
+        600: "#B3B3B3",
+        700: "#999999",
+        800: "#808080",
+        900: "#666666" /* Deeper shade */,
+      },
       primary: {
         100: "#D2F1F9",
         200: "#A4E4F4",
@@ -72,7 +84,7 @@ export default defineConfig({
     },
   },
   presets: [
-    presetUno(),
+    presetUno({ dark: "media" }),
     presetWebFonts({
       provider: "fontshare",
       fonts: {

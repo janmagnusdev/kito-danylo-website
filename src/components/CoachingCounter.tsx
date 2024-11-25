@@ -63,7 +63,7 @@ const CoachingCounterComponent = () => {
   let [counter, _setCounter] = createSignal(startCoachings);
 
   return (
-    <div class="flex flex-col text-white justify-center items-center w-full h-full">
+    <div class="flex flex-col justify-center items-center w-full h-full">
       <div class="w-full font-mono">{now.setLocale("de").toFormat("ff")}</div>
       <div class="w-full">
         <span>{counter()}</span> Coachings bis jetzt

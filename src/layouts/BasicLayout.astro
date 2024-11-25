@@ -107,7 +107,7 @@ const structuredData =
     />
   </head>
   <body
-    class="dark:bg-darkslate-700 light:bg-lightslate-50 md:h-screen flex flex-col justify-center items-center"
+    class="dark:bg-darkslate-700 light:bg-lightslate-50 dark:text-white light:text-black md:h-screen flex flex-col justify-center items-center"
   >
     <slot name="loader" />
     <slot />
@@ -134,6 +134,10 @@ const structuredData =
     margin: 0;
     font-family: "Satoshi", sans-serif;
     -webkit-font-smoothing: antialiased;
+  }
+
+  a:visited {
+    color: inherit;
   }
 
   h1,

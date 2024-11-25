@@ -54,8 +54,7 @@ const { locale } = Astro.locals as App.Locals;
         rowSpan="md:row-span-1"
         title="Countries I visited"
         href={getRelativeLocaleUrl("de", "travel")}
-        colorText="text-neutral-900"
-        className="mb-2"
+        class="mb-2"
       >
         <div class="h-full w-full absolute inset-0 -z-10">
           <Globe client:load />

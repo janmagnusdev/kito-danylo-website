@@ -1,7 +1,7 @@
 import GermanTranslations from "./translations.de.ts";
 
 const translations: typeof GermanTranslations = {
-  welcome: "welcome",
+  welcome: "Welcome",
   layoutTitleHi: "Hi, I'm Kito Danylo, your personal trainer!",
   socials: "Socials",
   back: "Back",

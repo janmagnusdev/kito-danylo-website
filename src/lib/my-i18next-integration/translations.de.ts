@@ -1,5 +1,5 @@
 const translations = {
-  welcome: "willkommen",
+  welcome: "Willkommen",
   layoutTitleHi: "Hi, ich bin Kito Danylo, dein Personal Trainer!",
   back: "Zurück",
   socials: "Links",

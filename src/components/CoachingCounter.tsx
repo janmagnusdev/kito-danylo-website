@@ -71,7 +71,15 @@ const StyledCounter = styled.span`
   color: transparent;
 `;
 
-const CoachingCounterComponent = () => {
+const formatNumber = (number: number, locale: string): string => {
+  return Intl.NumberFormat(locale).format(number);
+};
+
+interface CoachingCounterProps {
+  locale: string;
+}
+
+const CoachingCounterComponent = ({ locale }: CoachingCounterProps) => {
   const timeZone = IANAZone.create("Europe/Berlin");
 
   let now = DateTime.now().setZone(timeZone);
@@ -106,7 +114,7 @@ const CoachingCounterComponent = () => {
       </div>
       <div class="w-full light:text-black dark:text-white">
         <StyledCounter class="font-bold" ref={counterRef}>
-          {counter()}
+          {formatNumber(counter(), locale)}
         </StyledCounter>{" "}
         {t("coachingCounter.until")}
       </div>

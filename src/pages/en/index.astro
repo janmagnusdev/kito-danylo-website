@@ -51,7 +51,7 @@ const { locale } = Astro.locals as App.Locals;
     <ContactsCard />
     <div class="md:col-span-1 md:row-span-2 gap-2 grid gap-2">
       <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-        <CoachingCounter client:load />
+        <CoachingCounter locale={locale} client:load />
       </Card>
       <Card
         colSpan="md:col-span-1"

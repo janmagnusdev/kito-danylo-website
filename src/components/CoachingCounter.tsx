@@ -1,7 +1,6 @@
 import { createSignal, onCleanup, onMount } from "solid-js";
 import { DateTime, IANAZone } from "luxon";
 import { styled } from "solid-styled-components";
-import { t } from "i18next";
 
 const weekDayCoachingMap = {
   1: 2,
@@ -78,9 +77,13 @@ const formatNumber = (number: number, locale: string): string => {
 
 interface CoachingCounterProps {
   locale: string;
+  counterText: string;
 }
 
-const CoachingCounterComponent = ({ locale }: CoachingCounterProps) => {
+const CoachingCounterComponent = ({
+  locale,
+  counterText,
+}: CoachingCounterProps) => {
   const timeZone = IANAZone.create("Europe/Berlin");
 
   let now = DateTime.now().setZone(timeZone);
@@ -111,13 +114,13 @@ const CoachingCounterComponent = ({ locale }: CoachingCounterProps) => {
   return (
     <div class="flex flex-col justify-center items-center w-full h-full">
       <div class="w-full tabular-nums">
-        {now.setLocale("de").toFormat("ff")}
+        {now.setLocale(locale).toFormat("ff")}
       </div>
       <div class="w-full light:text-black dark:text-white">
         <StyledCounter class="font-bold" ref={counterRef}>
           {formatNumber(counter(), locale)}
         </StyledCounter>{" "}
-        {t("coachingCounter.until")}
+        {counterText}
       </div>
     </div>
   );

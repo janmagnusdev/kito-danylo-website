@@ -4,6 +4,7 @@ import { JSDOM } from "jsdom";
 import DOMPurify from "dompurify";
 import { t } from "i18next";
 import { type SUPPORTED_LANGUAGES } from "@lib/constants";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const window = new JSDOM("").window;
 const purify = DOMPurify(window);
@@ -15,7 +16,7 @@ interface Props {
 
 const { targetLanguage, originLanguage } = Astro.props;
 
-const link = `<a class="text-primary-500" href="/${targetLanguage}/">
+const link = `<a class="text-primary-500" href=${getRelativeLocaleUrl(targetLanguage, "/")}>
           ${t(`languages.${targetLanguage}.label`, { ns: "global" })}
         </a>`;
 

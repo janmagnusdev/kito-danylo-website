@@ -32,7 +32,7 @@ const { frontmatter } = Astro.props;
   <main
     class="mx-auto max-w-3xl w-full h-screen p-8 dark:text-neutral-100 light:text-neutral-800"
   >
-    <LinkButton link={getRelativeLocaleUrl(frontmatter.locale, "blog")}
+    <LinkButton link={getRelativeLocaleUrl(locale, "blog")}
       >{t("back")}</LinkButton
     >
     <div class="my-10">

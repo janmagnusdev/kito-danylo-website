@@ -4,7 +4,6 @@ title: "Hello, World"
 description: "this is a post example"
 pubDate: 2023-01-21
 category: "intro"
-locale: "de"
 ---
 
 # Hi there!

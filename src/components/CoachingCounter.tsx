@@ -20,7 +20,8 @@ const WORKING_END = 9;
 
 const getCoachingsForDay = (date: DateTime): number => {
   const scaleFactor = 0.7;
-  const dateBased = date.get("weekday") as keyof typeof weekDayCoachingMap;
+  const weekday = date.get("weekday") as keyof typeof weekDayCoachingMap;
+  const dateBased = weekDayCoachingMap[weekday];
   const monthBased = Math.ceil(date.get("month") / 4);
   const dayInMonthBased = Math.ceil(date.get("daysInMonth") / 10);
   return Math.round((dateBased + monthBased + dayInMonthBased) * scaleFactor);

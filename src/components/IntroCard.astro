@@ -3,10 +3,9 @@ import Card from "./Card/index.astro";
 import Button from "./Button.astro";
 import { LINKS } from "@lib/constants";
 import { Icon } from "astro-icon/components";
-import Tooltip from "./Tooltip/index";
 import { Image } from "astro:assets";
 import LanguageSwitcher from "./i18n/LanguageSwitcher.astro";
-import i18next, { t } from "i18next";
+import { t } from "i18next";
 import { type App } from "../env";
 
 const { locale } = Astro.locals as App.Locals;

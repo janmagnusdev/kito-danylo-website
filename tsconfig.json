@@ -10,7 +10,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@lib/*": ["src/lib/*"],
       "@pages/*": ["src/pages/*"],
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@root/*": ["./*"]
     }
   }
 }

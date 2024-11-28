@@ -42,6 +42,12 @@ const {
     --scrollbarColor: var(--scrollbarColorLight);
   }
 
+  :root.dark {
+    .dropdown-card {
+      --scrollbarColor: var(--scrollbarColorDark);
+    }
+  }
+
   @media (prefers-color-scheme: dark) {
     .dropdown-card {
       --scrollbarColor: var(--scrollbarColorDark);

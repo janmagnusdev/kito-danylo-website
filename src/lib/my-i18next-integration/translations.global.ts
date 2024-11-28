@@ -1,8 +1,8 @@
-const translations: GlobalTranslations = {
+const translations = {
   languages: {
     de: {
       label: "Deutsch",
-      text: "Diese Seite ist auch in %s verfügbar",
+      text: "Diese Seite ist auch auf %s verfügbar",
     },
     en: {
       label: "English",

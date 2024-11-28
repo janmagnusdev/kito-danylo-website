@@ -39,22 +39,47 @@ const translations: typeof GermanTranslations = {
     tel: "Phone:",
     technical: "Layout and technical realization:",
     copyright: "Copyright: ",
-    copyrightNotice:
-      "The content and works created by the operators of this site are subject to German copyright law,\n" +
-      "are subject to German copyright law. Any form of reproduction,\n" +
-      "processing, distribution or any other use outside the legally permitted\n" +
-      "permitted by law requires prior written authorisation. Downloads\n" +
-      "and copies of this website may only be used for private and non-commercial\n" +
-      "commercial purposes.\n" +
-      "If content on this website does not originate from the operator itself,\n" +
-      "the rights of third parties are taken into account and such content is\n" +
-      "labelled accordingly. Should you nevertheless notice a possible infringement of copyright\n" +
-      "we would ask you to notify us. As soon as we become aware of any legal infringements\n" +
-      "we will remove the content in question immediately.",
+    copyrightNotice: `The content and works created by the operators of this site are subject to German copyright law, are subject to German copyright law. Any form of reproduction, processing, distribution or any other use outside the legally permitted permitted by law requires prior written authorisation. Downloads and copies of this website may only be used for private and non-commercial commercial purposes. If content on this website does not originate from the operator itself, the rights of third parties are taken into account and such content is labelled accordingly. Should you nevertheless notice a possible infringement of copyright we would ask you to notify us. As soon as we become aware of any legal infringements we will remove the content in question immediately.`,
     generator: {
       from: "Imprint from ",
       of: "of ",
       lawyers: "Specialist lawyers for family law",
+    },
+  },
+  blog: {
+    noTitle: "No Title",
+    posts: "Posts",
+    readingTime: "{{minutes}}min reading time",
+  },
+  offerPage: {
+    athletics: {
+      title: "Athletics & Performance",
+      text1: `The development of sport requires more than just players/athletes with talent and skills. Top athletes should also be versatile top athletes in order to maximise their potential and perform injury-free.`,
+      text2:
+        "The aim here is to push your limits and have fun working on your performance as an athlete in detail. Speed, strength, dynamics and stability tailored to your individual deficits, strengths and your sport. Sounds interesting? Then let's take your performance to the next level!",
+    },
+    yoga: {
+      title: "Yoga, meditation and body awareness",
+      text1:
+        "Yoga contains many elements that can both release and collect energy. The asanas (postures) range from harmonising movement sequences and intensive flows to breathing and relaxation techniques. The focus is on energy recovery, harmonising the individual segments of the body and focusing on self-awareness.",
+      text2: "Where the focus goes, energy flows!",
+    },
+    allTogether: {
+      title: "Training, nutrition & lifestyle",
+      text1:
+        "Everything is interconnected and one does not work without the other. A healthy diet leads to greater vitality and performance, just like exercise and training. Combining the two provides the ideal basis for feeling a better quality of life every day.",
+      text2:
+        "We can therefore only expect what we provide our body with in return. Together, we will develop an efficient way that is suitable for everyday use to continuously optimise your diet, training and therefore your well-being and performance.",
+    },
+    nutrition: {
+      title: "Nutrition",
+      text1: `Healthy eating is not a sacrifice, but a gift to yourself! With individual nutritional strategies based on taste, intolerances and optimisation of body awareness and performance.`,
+      text2: `The focus is on using the right products, nutrients and dishes to create an everyday-friendly and easy-to-implement routine.`,
+    },
+    movement: {
+      title: "Exercise & fitness in everyday life",
+      text1: `Our daily lives can be very demanding and often externally determined. We have responsibilities, professional and private commitments and we often realise that our needs can quickly fall by the wayside.`,
+      text2: `Your right dose of training intensity and variability with the right choice of exercises is crucial. Your training is customised so that you feel more stable/freer, both health-wise and emotionally, and can start many days with a smile on your face so that you can maintain your lightness during both enjoyable and less enjoyable tasks.`,
     },
   },
 };

@@ -6,6 +6,7 @@ const translations: typeof GermanTranslations = {
   socials: "Socials",
   back: "Back",
   timezone: "Timezone",
+  germany: "Germany",
   coachingCounter: {
     until: "coachings yet",
   },

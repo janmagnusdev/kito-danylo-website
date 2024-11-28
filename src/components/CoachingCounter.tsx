@@ -1,6 +1,7 @@
 import { createSignal, onCleanup, onMount } from "solid-js";
 import { DateTime, IANAZone } from "luxon";
 import { styled } from "solid-styled-components";
+import { t } from "i18next";
 
 const weekDayCoachingMap = {
   1: 2,
@@ -103,11 +104,11 @@ const CoachingCounterComponent = () => {
       <div class="w-full tabular-nums">
         {now.setLocale("de").toFormat("ff")}
       </div>
-      <div class="w-full">
+      <div class="w-full light:text-black dark:text-white">
         <StyledCounter class="font-bold" ref={counterRef}>
           {counter()}
         </StyledCounter>{" "}
-        Coachings bis jetzt
+        {t("coachingCounter.until")}
       </div>
     </div>
   );

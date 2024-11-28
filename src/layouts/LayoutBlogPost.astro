@@ -4,6 +4,11 @@ import type { MarkdownLayoutProps } from "astro";
 import BasicLayout from "./BasicLayout.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import LinkButton from "@components/LinkButton.astro";
+import { t } from "i18next";
+
+import { type App } from "@src/env";
+
+const { locale } = Astro.locals as App.Locals;
 
 type Props = MarkdownLayoutProps<{
   title: string;
@@ -28,14 +33,14 @@ const { frontmatter } = Astro.props;
     class="mx-auto max-w-3xl w-full h-screen p-8 dark:text-neutral-100 light:text-neutral-800"
   >
     <LinkButton link={getRelativeLocaleUrl(frontmatter.locale, "blog")}
-      >Back</LinkButton
+      >{t("back")}</LinkButton
     >
     <div class="my-10">
       <h1 class="text-5xl font-semibold">{frontmatter.title}</h1>
       <div
         class="flex justify-between pt-4 dark:text-gray-400 light:text-gray-600 text-sm"
       >
-        <p>{formatDate(new Date(frontmatter.pubDate))}</p>
+        <p>{formatDate(new Date(frontmatter.pubDate), locale)}</p>
         <p>{frontmatter.minutesRead}</p>
       </div>
     </div>

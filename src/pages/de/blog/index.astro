@@ -1,9 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import Layout from "../../../layouts/Layout.astro";
-import PostRow from "../../../components/Blog/PostRow.astro";
+import Layout from "@layouts/Layout.astro";
+import PostRow from "@components/Blog/PostRow.astro";
 import LinkButton from "@components/LinkButton.astro";
+import { t } from "i18next";
+import { type App } from "@src/env";
+
+const { locale } = Astro.locals as App.Locals;
 
 const posts = (await getCollection("blog"))?.sort(
   (blogEntryA, blogEntryB) =>
@@ -14,7 +18,7 @@ const posts = (await getCollection("blog"))?.sort(
 
 <script>
   import { timeline, type TimelineDefinition } from "motion";
-  import { loaderAnimation } from "../../../lib/constants";
+  import { loaderAnimation } from "@lib/constants";
 
   const sequence = [loaderAnimation];
 
@@ -28,19 +32,20 @@ const posts = (await getCollection("blog"))?.sort(
   <main
     class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
   >
-    <LinkButton link="/de/">Back</LinkButton>
+    <LinkButton link={getRelativeLocaleUrl(locale, "/")}>{t("back")}</LinkButton
+    >
     <h1
       class="text-4xl font-bold mb-4 dark:text-neutral-100 light:text-neutral-800"
     >
-      Posts
+      {t("blog.posts")}
     </h1>
     <ul class="w-full">
       {
         posts?.map((post) => (
           <PostRow
-            title={post.data.title || "No title"}
+            title={post.data.title || t("blog.noTitle")}
             date={post.data.pubDate || new Date()}
-            url={getRelativeLocaleUrl("en", `blog/${post.slug}`)}
+            url={getRelativeLocaleUrl(locale, `blog/${post.slug}`)}
           />
         ))
       }

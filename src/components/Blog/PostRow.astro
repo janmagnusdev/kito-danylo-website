@@ -1,6 +1,10 @@
 ---
 import { formatDate } from "../../lib/helpers";
 
+import { type App } from "@src/env";
+
+const { locale } = Astro.locals as App.Locals;
+
 interface Props {
   title: string;
   date: Date;
@@ -25,7 +29,7 @@ const { title, date, url } = Astro.props;
       datetime={date.toISOString()}
       data-date={date.toISOString()}
     >
-      {formatDate(date)}
+      {formatDate(date, locale)}
     </time>
   </a>
 </li>

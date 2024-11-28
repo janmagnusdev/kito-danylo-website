@@ -1,0 +1,93 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card/index.astro";
+import IntroCard from "../../components/IntroCard.astro";
+import ContactsCard from "../../components/ContactsCard.astro";
+import TimeZone from "../../components/TimeZoneCard.astro";
+import AboutMe from "../../components/AboutMe.astro";
+import Now from "../../components/OfferCard.astro";
+import CoachingCounter from "../../components/CoachingCounter";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { AUTHOR_GITHUB_PROFILE } from "../../lib/constants";
+import { type App } from "../../env";
+
+const { locale } = Astro.locals as App.Locals;
+---
+
+<script>
+  import { stagger, spring, timeline, type TimelineDefinition } from "motion";
+  import { loaderAnimation } from "../../lib/constants";
+  const cards = document.querySelectorAll(".card");
+
+  const sequence = [
+    loaderAnimation,
+    [
+      cards,
+      { y: ["40%", "0%"], opacity: [0, 1] },
+      {
+        at: "-0.1",
+        duration: 0.4,
+        delay: stagger(0.3),
+        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
+      },
+    ],
+  ];
+
+  timeline(sequence as TimelineDefinition);
+</script>
+
+<Layout
+  title="Kito Danylo - Personal Trainer"
+  description="Hi, ich bin Kito Danylo, dein Personal Trainer!"
+>
+  <main
+    class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
+  >
+    <IntroCard />
+    <AboutMe />
+    <Now />
+    <TimeZone />
+
+    <ContactsCard />
+    <div class="md:col-span-1 md:row-span-2 gap-2 grid gap-2">
+      <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
+        <CoachingCounter client:load />
+      </Card>
+      <Card
+        colSpan="md:col-span-1"
+        rowSpan="md:row-span-1"
+        paddingClass="px-6 py-2"
+      >
+        <p class="text-xs">
+          © 2024 ·
+          <a
+            class="dark:text-primary-500 light:text-primary-700 font-bold"
+            href={getRelativeLocaleUrl(locale, "imprint")}>Impressum</a
+          >
+          · Crafted with 💙 using <a
+            href="https://astro.build/"
+            target="_blank"
+            class="dark:text-primary-700 light:text-primary-800">Astro</a
+          > by <a
+            class="dark:text-primary-700 light:text-primary-800"
+            href={AUTHOR_GITHUB_PROFILE}>@janmagnusdev</a
+          > ·
+          <a
+            class="dark:text-primary-700 light:text-primary-800"
+            href="https://github.com/Ladvace/astro-bento-portfolio">Template</a
+          > from <a
+            class="dark:text-primary-700 light:text-primary-800"
+            href="https://github.com/Ladvace">Gianmarco</a
+          >
+        </p>
+      </Card>
+    </div>
+
+    <Card
+      colSpan="md:col-span-1"
+      rowSpan="md:row-span-2 flex"
+      title="Blog"
+      href={getRelativeLocaleUrl(locale, "blog")}
+    />
+  </main>
+</Layout>

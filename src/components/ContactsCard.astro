@@ -2,6 +2,7 @@
 import Card from "@components/Card/index.astro";
 import { LINKS } from "@lib/constants";
 import { Icon } from "astro-icon/components";
+import { t } from "i18next";
 
 const text = {
   de: {
@@ -31,18 +32,18 @@ const text = {
 <Card colSpan="md:col-span-2" rowSpan="md:row-span-4">
   <div class="h-full">
     <header class="flex items-center">
-      <h1 class="text-xl font-bold">Let's start working out together!</h1>
+      <h1 class="text-xl font-bold">{t("contactCard.workout")}</h1>
     </header>
     <div class="grid grid-cols-2 grid-rows-1 h-full content-center">
       <div>
         <address class="flex flex-col mt-4">
-          <h2 class="text-gray-500">Contact Details</h2>
-          <p>mail@kito-danylo.com</p>
+          <h2 class="text-gray-500">{t("contactCard.details")}</h2>
+          <p>{LINKS.emailOnly}</p>
           <p>Germany</p>
         </address>
 
         <div class="flex flex-col mt-4 w-fit">
-          <h2 class="text-gray-500">Socials</h2>
+          <h2 class="text-gray-500">{t("socials")}</h2>
           <ul>
             <li>
               <a href={LINKS.email} target="_blank">Email</a>
@@ -62,9 +63,10 @@ const text = {
           class="mb-4 h-12 w-12 self-center"
         />
         <p>
-          Bist Du körperlich und mental in Bestform? Wie schaut es mit Deinen
-          gesundheitlichen und privaten Zielen aus? Vertraue dem Prozess und
-          lasse dich zu einem besseren Lebensstil inspirieren!
+          {t("contactCard.text1")}
+        </p>
+        <p>
+          {t("contactCard.text2")}
         </p>
       </div>
     </div>

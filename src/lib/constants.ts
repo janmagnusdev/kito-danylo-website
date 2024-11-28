@@ -1,7 +1,10 @@
+const EMAIL_ONLY = "training@kitocoaching.de";
+
 export const LINKS = {
   instagram: "https://www.instagram.com/coachkito/",
   xing: "https://www.xing.com/profile/Kito_Danylo",
-  email: "mailto:training@kitocoaching.de",
+  email: `mailto:${EMAIL_ONLY}`,
+  emailOnly: EMAIL_ONLY,
 };
 
 export const loaderAnimation = [

@@ -13,7 +13,15 @@ interface Props {
   borderColor?: string;
   class?: string;
   paddingClass?: string;
+  contentShouldScroll?: boolean;
 }
+
+import { createGenerator } from "unocss";
+import config from "uno.config";
+
+const ctx = createGenerator(config);
+const scrollbarColorDark = ctx.config.theme.colors["gray"]["500"];
+const scrollbarColorLight = ctx.config.theme.colors["gray"]["200"];
 
 const {
   title,
@@ -25,11 +33,58 @@ const {
   borderColor,
   class: classNames,
   paddingClass,
+  contentShouldScroll = false,
 } = Astro.props;
 ---
 
+<style is:global define:vars={{ scrollbarColorDark, scrollbarColorLight }}>
+  .card.scroll-content {
+    --colored-border-width: 1px;
+    --colored-border-length: 25%;
+    --scrollbarColor: var(--scrollbarColorLight);
+  }
+
+  :root.dark {
+    .card.scroll-content {
+      --scrollbarColor: var(--scrollbarColorDark);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .card.scroll-content {
+      --scrollbarColor: var(--scrollbarColorDark);
+    }
+  }
+
+  .card.scroll-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card.scroll-content .content {
+    flex: 1;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
+  .card.scroll-content .content::-webkit-scrollbar {
+    width: auto;
+  }
+
+  .card.scroll-content .content::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    background-color: var(--scrollbarColor);
+    background-clip: padding-box;
+    border-radius: 8px;
+  }
+
+  .card.scroll-content .content::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+</style>
+
 <div
-  class={`card h-max sm:h-auto group overflow-hidden transform-y-[-40%] dark:bg-darkslate-500 light:bg-lightslate-50 shadow-lg rounded-lg ${paddingClass ? paddingClass : "p-6"} border ${borderColor ? borderColor : "border-darkslate-100"} hover:border-primary-500 align-start flex-none ${
+  class={`card ${contentShouldScroll ? "scroll-content" : ""} h-max sm:h-auto group overflow-hidden transform-y-[-40%] dark:bg-darkslate-500 light:bg-lightslate-50 shadow-lg rounded-lg ${paddingClass ? paddingClass : "p-6"} border ${borderColor ? borderColor : "border-darkslate-100"} hover:border-primary-500 align-start flex-none ${
     height || "h-full"
   } justify-start relative transform perspective-1200 w-full transition duration-75 ease-in-out col-span-1 ${
     colSpan || "md:col-span-2"

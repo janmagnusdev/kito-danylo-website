@@ -1,23 +1,50 @@
 ---
-import { getCurrentTime, formatTime, formatDate } from "../lib/helpers";
+import { getCurrentTime, formatTime } from "../lib/helpers";
 import Card from "./Card/index.astro";
 import { t } from "i18next";
+import { type App } from "@src/env";
+
+const timeZones: string[] = [
+  "Europe/Berlin",
+  "America/Sao_Paulo",
+  "Asia/Bangkok",
+];
+
+const { locale } = Astro.locals as App.Locals;
 ---
 
 <script>
   import { onCleanup, onMount } from "solid-js";
-  import { formatTime, formatDate } from "../lib/helpers";
+  import { formatTime } from "../lib/helpers";
+
+  const timeZones: string[] = [
+    "Europe/Berlin",
+    "America/Sao_Paulo",
+    "Asia/Bangkok",
+  ];
 
   let interval: ReturnType<typeof setInterval>;
 
-  function updateClock() {
-    const timeDisplay = document.getElementById("timeDisplay");
+  function beautifyTz(timeZone: string) {
+    const modified = timeZone.replace("Sao_Paulo", "Rio de Janeiro");
+    return modified.replace("_", " ");
+  }
+
+  function doUpdate(timeZone: string, index: number) {
+    const timeDisplay = document.getElementById(`time-display-${index}`);
     const now = new Date();
 
     if (timeDisplay) {
-      timeDisplay.innerHTML = `${formatTime(now)}`;
+      const locale = timeDisplay.dataset["locale"]!;
+      timeDisplay.innerHTML = `${formatTime(now, locale, timeZone)} ${beautifyTz(timeZone)}`;
       timeDisplay.setAttribute("datetime", now.toISOString());
     }
+  }
+
+  function updateClock() {
+    timeZones.forEach((timeZone, index) => {
+      doUpdate(timeZone, index);
+    });
   }
 
   onMount(() => {
@@ -29,10 +56,22 @@ import { t } from "i18next";
   });
 </script>
 
-<Card colSpan="lg:col-span-1" rowSpan="md:row-span-2" title={t("timezone")}>
-  <div class="flex text-xl items-center justify-center h-full tabular-nums">
-    <time datetime="" id="timeDisplay" class="flex items-center">
-      {formatTime(getCurrentTime())}
-    </time>
+<Card
+  colSpan="lg:col-span-1"
+  rowSpan="md:row-span-2"
+  title={t("timezone")}
+  class="flex flex-col"
+>
+  <div
+    class="flex flex-col text-sm items-center md:items-start justify-center h-full tabular-nums"
+  >
+    <!-- "America/Sao_Paulo" = Rio -->
+    {
+      timeZones.map((timeZone, index) => (
+        <time datetime="" id={`time-display-${index}`} data-locale={locale}>
+          {formatTime(getCurrentTime(), locale, timeZone)} {timeZone}
+        </time>
+      ))
+    }
   </div>
 </Card>

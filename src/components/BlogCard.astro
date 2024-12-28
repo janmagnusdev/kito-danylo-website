@@ -1,0 +1,15 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Card from "./Card/index.astro";
+
+import { type App } from "@src/env";
+
+const { locale } = Astro.locals as App.Locals;
+---
+
+<Card
+  colSpan="md:col-span-1"
+  rowSpan="md:row-span-2 flex"
+  title="Blog"
+  href={getRelativeLocaleUrl(locale, "blog")}
+/>

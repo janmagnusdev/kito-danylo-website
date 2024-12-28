@@ -11,6 +11,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { AUTHOR_GITHUB_PROFILE } from "@lib/constants";
 import { type App } from "@src/env";
 import { t } from "i18next";
+import BlogCard from "../components/BlogCard.astro";
 
 const { locale } = Astro.locals as App.Locals;
 ---
@@ -50,6 +51,9 @@ const { locale } = Astro.locals as App.Locals;
     <OfferCard />
 
     <ContactsCard />
+
+    <BlogCard />
+
     <div class="md:col-span-1 md:row-span-2 gap-2 grid gap-2">
       <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
         <CoachingCounter
@@ -88,12 +92,5 @@ const { locale } = Astro.locals as App.Locals;
         </p>
       </Card>
     </div>
-
-    <Card
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-2 flex"
-      title="Blog"
-      href={getRelativeLocaleUrl(locale, "blog")}
-    />
   </main>
 </Layout>

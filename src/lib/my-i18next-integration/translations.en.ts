@@ -5,7 +5,7 @@ const translations: typeof GermanTranslations = {
   layoutTitleHi: "Hi, I'm Kito Danylo, your personal trainer!",
   socials: "Socials",
   back: "Back",
-  timezone: "Timezone",
+  timezone: "Timezones",
   germany: "Germany",
   coachingCounter: {
     until: "coachings yet",

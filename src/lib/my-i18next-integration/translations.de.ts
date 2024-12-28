@@ -4,7 +4,7 @@ const translations = {
   back: "Zurück",
   socials: "Links",
   germany: "Deutschland",
-  timezone: "Zeitzone",
+  timezone: "Zeitzonen",
   coachingCounter: {
     until: "Coachings bis jetzt",
   },

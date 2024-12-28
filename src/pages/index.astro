@@ -5,7 +5,7 @@ import IntroCard from "@components/IntroCard.astro";
 import ContactsCard from "@components/ContactsCard.astro";
 import TimeZone from "@components/TimeZoneCard.astro";
 import AboutMe from "@components/AboutMe.astro";
-import Now from "@components/OfferCard.astro";
+import OfferCard from "@components/OfferCard.astro";
 import CoachingCounter from "@components/CoachingCounter";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { AUTHOR_GITHUB_PROFILE } from "@lib/constants";
@@ -46,8 +46,8 @@ const { locale } = Astro.locals as App.Locals;
   >
     <IntroCard />
     <AboutMe />
-    <Now />
     <TimeZone />
+    <OfferCard />
 
     <ContactsCard />
     <div class="md:col-span-1 md:row-span-2 gap-2 grid gap-2">

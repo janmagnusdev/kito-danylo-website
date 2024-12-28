@@ -1,0 +1,17 @@
+---
+import { t } from "i18next";
+import Card from "@components/Card/index.astro";
+import CoachingCounter from "@components/CoachingCounter";
+
+import { type App } from "@src/env";
+
+const { locale } = Astro.locals as App.Locals;
+---
+
+<Card class="coaching-counter-card">
+  <CoachingCounter
+    locale={locale}
+    counterText={t("coachingCounter.until")}
+    client:only="solid-js"
+  />
+</Card>

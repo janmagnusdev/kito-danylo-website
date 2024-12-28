@@ -5,8 +5,6 @@ import { offerContentLinkColors } from "../../../uno.config";
 interface Props {
   title?: string;
   body?: string;
-  colSpan?: string;
-  rowSpan?: string;
   height?: string;
   width?: string;
   borderColor?: string;
@@ -25,8 +23,6 @@ const scrollbarColorLight = ctx.config.theme.colors["gray"]["200"];
 const {
   title,
   body,
-  colSpan,
-  rowSpan,
   height,
   borderColor,
   class: classNames,
@@ -183,9 +179,6 @@ const {
     transition 
     duration-75 
     ease-in-out 
-    col-span-1 
-    ${colSpan || "md:col-span-2"} 
-    ${rowSpan || ""} 
     ${classNames} 
     relative
     md:max-h-xs

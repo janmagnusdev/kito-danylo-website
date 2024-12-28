@@ -51,8 +51,7 @@ const { locale } = Astro.locals as App.Locals;
       class="dropdown-cards overflow-hidden relative w-full m-auto grid gap-2 grid-items-center sm:gap-2 md:grid-rows-8 md:grid-cols-3 md:gap-4"
     >
       <DropdownCard
-        colSpan="md:col-span-1"
-        rowSpan="md:row-span-4"
+        class="md:col-span-1 md:row-span-4"
         borderColor={`border-${offerContentLinkColors[0]}`}
         title={t("offerPage.athletics.title")}
       >
@@ -67,8 +66,7 @@ const { locale } = Astro.locals as App.Locals;
       </DropdownCard>
       <div class="md:col-span-1 md:row-span-2 hidden md:block"></div>
       <DropdownCard
-        colSpan="md:col-span-1"
-        rowSpan="md:row-span-4"
+        class="md:col-span-1 md:row-span-4"
         borderColor={`border-${offerContentLinkColors[1]}`}
         title={t("offerPage.yoga.title")}
       >
@@ -80,8 +78,7 @@ const { locale } = Astro.locals as App.Locals;
         </div>
       </DropdownCard>
       <DropdownCard
-        colSpan="md:col-span-1"
-        rowSpan="md:row-span-4"
+        class="md:col-span-1 md:row-span-4"
         initialOpen={true}
         middle={true}
         title={t("offerPage.allTogether.title")}
@@ -96,8 +93,7 @@ const { locale } = Astro.locals as App.Locals;
         </div>
       </DropdownCard>
       <DropdownCard
-        colSpan="md:col-span-1"
-        rowSpan="md:row-span-4"
+        class="md:col-span-1 md:row-span-4"
         title={t("offerPage.nutrition.title")}
         borderColor={`border-${offerContentLinkColors[2]}`}
       >
@@ -111,8 +107,7 @@ const { locale } = Astro.locals as App.Locals;
         </div>
       </DropdownCard>
       <DropdownCard
-        colSpan="md:col-span-1"
-        rowSpan="md:row-span-4"
+        class="md:col-span-1 md:row-span-4"
         borderColor={`border-${offerContentLinkColors[3]}`}
         title={t("offerPage.movement.title")}
       >

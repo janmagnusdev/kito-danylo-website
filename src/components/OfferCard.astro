@@ -16,11 +16,7 @@ const { locale } = Astro.locals as App.Locals;
   }
 </style>
 
-<Card
-  colSpan="md:col-span-1"
-  rowSpan="md:row-span-2"
-  href={getRelativeLocaleUrl(locale, "offer")}
->
+<Card href={getRelativeLocaleUrl(locale, "offer")} class="offer-card">
   <div class="h-full block flex flex-col">
     <div class="flex flew-row justify-start items-center gap-2">
       <Pulse class="self-center mr-2" />

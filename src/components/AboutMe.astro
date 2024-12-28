@@ -9,12 +9,7 @@ import Card from "@components/Card/index.astro";
 const { locale } = Astro.locals as App.Locals;
 ---
 
-<Card
-  colSpan="md:col-span-1"
-  rowSpan="md:row-span-4"
-  title={t("aboutMe.title")}
-  contentShouldScroll
->
+<Card title={t("aboutMe.title")} contentShouldScroll class="about-me-card">
   <div class="gap-2">
     <p class="text-sm font-light">{t("aboutMe.paragraph1")}</p>
     <p class="text-sm font-light">{t("aboutMe.paragraph2")}</p>

@@ -42,7 +42,7 @@ const { locale } = Astro.locals as App.Locals;
   description="Hi, ich bin Kito Danylo, dein Personal Trainer!"
 >
   <main
-    class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
+    class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[750px] lg:min-h-[750px]"
   >
     <IntroCard />
     <AboutMe />
@@ -67,7 +67,8 @@ const { locale } = Astro.locals as App.Locals;
           © 2024 ·
           <a
             class="dark:text-primary-500 light:text-primary-700 font-bold"
-            href={getRelativeLocaleUrl(locale, "imprint")}>Impressum</a
+            href={getRelativeLocaleUrl(locale, "imprint")}
+            >{t("imprint.linkTo")}</a
           >
           · Crafted with 💙 using <a
             href="https://astro.build/"

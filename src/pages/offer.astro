@@ -10,12 +10,6 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 const { locale } = Astro.locals as App.Locals;
 ---
 
-<style>
-  .back-button {
-    max-width: fit-content;
-  }
-</style>
-
 <script>
   import { stagger, spring, timeline, type TimelineDefinition } from "motion";
   import { loaderAnimation } from "@lib/constants";
@@ -43,16 +37,18 @@ const { locale } = Astro.locals as App.Locals;
   title="Kito Danylo - Personal Trainer"
   description="Hi, ich bin Kito Danylo, dein Personal Trainer!"
 >
-  <div class="max-w-5xl flex flex-col md:max-h-dvh md:p-8">
+  <main
+    class="max-w-5xl flex flex-col md:p-8 md:max-h-[850px] md:min-h-[850px]"
+  >
     <div
-      class="flex-basis-none pb-2 flex-grow-0 grid gap-2 grid-rows-1 grid-columns-1 grid-items-center md:grid-content-start w-full"
+      class="upper-row flex-basis-none pb-2 flex-grow-0 grid gap-2 grid-rows-1 grid-columns-1 grid-items-center md:grid-content-start w-full"
     >
       <LinkButton link={getRelativeLocaleUrl(locale, "/")}
         >{t("back")}</LinkButton
       >
     </div>
-    <main
-      class="overflow-hidden relative w-full h-auto m-auto grid gap-2 grid-items-center sm:gap-2 md:h-screen md:grid-rows-8 md:grid-cols-3 md:gap-4"
+    <div
+      class="dropdown-cards overflow-hidden relative w-full m-auto grid gap-2 grid-items-center sm:gap-2 md:grid-rows-8 md:grid-cols-3 md:gap-4"
     >
       <DropdownCard
         colSpan="md:col-span-1"
@@ -125,6 +121,6 @@ const { locale } = Astro.locals as App.Locals;
           <p>{t("offerPage.movement.text2")}</p>
         </div>
       </DropdownCard>
-    </main>
-  </div>
+    </div>
+  </main>
 </Layout>

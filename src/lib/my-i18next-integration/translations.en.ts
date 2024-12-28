@@ -34,6 +34,7 @@ const translations: typeof GermanTranslations = {
     subtitle: "You'll find it here",
   },
   imprint: {
+    linkTo: "Imprint",
     law: "Information according to § 5 DDG",
     represent: "Represented by:",
     contact: "Contact:",

@@ -2,7 +2,7 @@
 
 ![kit-danylo-website | Bento-like Personal Porfolio Template](public/preview.png)
 
-## A personal portfolio website made using `Astro`.
+A personal portfolio website made using `Astro`.
 
 ## Tech Stack
 

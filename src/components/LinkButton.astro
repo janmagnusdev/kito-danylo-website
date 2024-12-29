@@ -1,9 +1,10 @@
 ---
 interface Props {
   link: string;
+  class?: string;
 }
 
-const { link } = Astro.props;
+const { link, class: classNames } = Astro.props;
 ---
 
 <a
@@ -23,7 +24,9 @@ const { link } = Astro.props;
   max-w-fit
   border-neutral-600
   rounded-lg
-  mb-8`
+  mb-8
+  ${classNames ?? ""}
+  `
 >
   <slot />
 </a>

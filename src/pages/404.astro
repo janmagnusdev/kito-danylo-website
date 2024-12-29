@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Card from "@components/Card/index.astro";
+import LinkButton from "../components/LinkButton.astro";
 ---
 
 <script>
@@ -25,15 +26,31 @@ import Card from "@components/Card/index.astro";
   timeline(sequence as TimelineDefinition);
 </script>
 
+<style>
+  .text-shadow {
+    text-shadow: 5px 5px dimgrey;
+  }
+</style>
+
 <Layout
   title="Kito Danylo - Personal Trainer"
   description="Hi, I'm Kito Danylo, a personal trainer from Germany."
 >
   <main
-    class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
+    class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full lg:h-screen lg:max-h-[800px]"
   >
-    <Card class="mb-2">
-      <p class="text-xl">404!!</p>
+    <Card class="mb-2" contentClass="min-h-full max-h-full flex">
+      <div
+        class="min-h-full max-h-full flex flex-col justify-center items-center flex-auto"
+      >
+        <h1 class="text-size-9xl drop-shadow-2xl font-bold text-shadow">404</h1>
+        <h2 class="text-size-2xl">Seite nicht gefunden</h2>
+        <p>
+          Die Seite, nach der du suchst, wurde vielleicht entfernt oder ist
+          temporär nicht erreichbar 🤖
+        </p>
+        <LinkButton class="mt-8" link="/">Homepage</LinkButton>
+      </div>
     </Card>
   </main>
 </Layout>

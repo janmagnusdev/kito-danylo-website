@@ -2,13 +2,14 @@
 interface Props {
   title?: string;
   body?: string;
+  class?: string;
 }
 
-const { title, body } = Astro.props;
+const { title, body, class: classNames } = Astro.props;
 ---
 
 <>
   {title && <h2 class="text-xl font-bold m-0 z-20 flex-basis-none">{title}</h2>}
   {body && <p class="m-0 font-light text-base flex-auto">{body}</p>}
-  <div class="content flex-auto"><slot /></div>
+  <div class={`content flex-auto ${classNames ?? ""}`}><slot /></div>
 </>

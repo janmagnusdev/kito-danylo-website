@@ -1,6 +1,7 @@
 ---
 import Card from "./Card/index.astro";
 import Button from "./Button.astro";
+import EducationLabel from "@components/EducationLabel.astro";
 import { LINKS } from "@lib/constants";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
@@ -16,11 +17,30 @@ const targetLocale = locale === "de" ? "en" : "de";
   <div class="flex w-full h-full">
     <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
       <div class="flex flex-col h-full">
-        <h6 class="text-sm font-light m-0 text-gray-500">{t("welcome")}</h6>
-        <p class="m-0 font-light text-xl">
-          {t("introCard.hi")}
-          <b class="font-bold">Kito Danylo</b>. {t("introCard.hi2")}
-        </p>
+        <div>
+          <h6 class="text-sm font-light m-0 text-gray-500">{t("welcome")}</h6>
+          <p class="m-0 font-light text-xl">
+            {t("introCard.hi")}
+            <b class="font-bold">Kito Danylo</b>. {t("introCard.hi2")}
+          </p>
+        </div>
+        <div
+          class="flex flex-row items-center mt-2 md:w-[120%] md:overflow-visible"
+        >
+          <Icon
+            name="ri:medal-2-fill"
+            class="text-size-4xl flex-basis-5xl flex-none mr-4"
+          />
+          <div
+            class="flex flex-row flex-wrap gap-1 justify-start items-stretch text-xs text-align-left"
+          >
+            <EducationLabel>Diplom Sport- und Gesundheitscoach</EducationLabel>
+            <EducationLabel>Athletik- und Performancetrainer</EducationLabel>
+            <EducationLabel>Rehatrainer</EducationLabel>
+            <EducationLabel>Yoga, Stress- und Mentalcoach</EducationLabel>
+            <EducationLabel>Ernährungsberater</EducationLabel>
+          </div>
+        </div>
       </div>
       <div class="flex gap-4 flex-wrap">
         <a
@@ -40,7 +60,7 @@ const targetLocale = locale === "de" ? "en" : "de";
           </Button>
         </a>
         <a href={LINKS.email} aria-label="mail profile" target="_blank">
-          <Button aria-label="mail profile">
+          <Button class="min-h-fit" aria-label="mail profile">
             <span class="flex flex-row items-center justify-between"
               >{t("introCard.action")}
               <Icon name="ri:mail-fill" class="ml-2" /></span

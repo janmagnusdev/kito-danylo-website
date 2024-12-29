@@ -36,7 +36,7 @@ const translations: typeof GermanTranslations = {
   imprint: {
     linkTo: "Imprint",
     law: "Information according to § 5 DDG",
-    represent: "Represented by:",
+    represented: "Represented by:",
     contact: "Contact:",
     tel: "Phone:",
     technical: "Layout and technical realization:",

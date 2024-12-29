@@ -64,7 +64,7 @@ const translations = {
   imprint: {
     linkTo: "Impressum",
     law: "Angaben gemäß § 5 DDG",
-    represent: "Vertreten durch:",
+    represented: "Vertreten durch:",
     contact: "Kontakt:",
     tel: "Phone:",
     technical: "Layout und technische Umsetzung:",

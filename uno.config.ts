@@ -1,5 +1,6 @@
 // uno.config.ts
 import { defineConfig, presetUno, presetWebFonts } from "unocss";
+import transformerDirectives from "@unocss/transformer-directives";
 
 export const offerContentLinkColors = [
   "orange-3",
@@ -93,4 +94,5 @@ export default defineConfig({
       },
     }),
   ],
+  transformers: [transformerDirectives()],
 });

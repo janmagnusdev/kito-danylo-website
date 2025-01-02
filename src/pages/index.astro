@@ -53,7 +53,7 @@ const { locale } = Astro.locals as App.Locals;
       "imprint-buffer";
   }
 
-  @media (min-width: 768px) {
+  @screen md {
     main.index-main {
       grid-template-areas:
         "intro-card      intro-card      intro-card"
@@ -71,15 +71,15 @@ const { locale } = Astro.locals as App.Locals;
     }
   }
 
-  @media (min-width: 1024px) {
+  @screen lg {
     main.index-main {
       grid-template-areas:
         "intro-card      intro-card      intro-card      about-me"
         "intro-card      intro-card      intro-card      about-me"
         "intro-card      intro-card      intro-card      about-me"
         "intro-card      intro-card      intro-card      about-me"
-        "offers          timezones       contact-details contact-details"
-        "offers          timezones       contact-details contact-details"
+        "timezones       offers          contact-details contact-details"
+        "timezones       offers          contact-details contact-details"
         "imprint-buffer  blog            contact-details contact-details"
         "imprint-buffer  blog            contact-details contact-details";
     }

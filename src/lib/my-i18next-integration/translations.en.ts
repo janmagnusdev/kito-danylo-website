@@ -27,7 +27,7 @@ const translations: typeof GermanTranslations = {
   introCard: {
     hi: "Hi, I am ",
     hi2: "Great that you are here! Convince yourself of the power of movement and achieve your wishes and goals together with me!",
-    action: "Book your Appointment now!",
+    action: "Book a Session now!",
   },
   offerCard: {
     title: "My Offers",

@@ -3,6 +3,7 @@ const EMAIL_ONLY = "training@kitocoaching.de";
 export const LINKS = {
   instagram: "https://www.instagram.com/coachkito/",
   xing: "https://www.xing.com/profile/Kito_Danylo",
+  linkedin: "https://www.linkedin.com/in/kito-danylo-9271a2351",
   email: `mailto:${EMAIL_ONLY}`,
   emailOnly: EMAIL_ONLY,
 };
